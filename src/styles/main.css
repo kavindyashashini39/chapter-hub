@@ -1,58 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-}
-nav {
-    background: #333;
     color: #fff;
-    padding: 1rem;
-    text-align: center;
+    background-color: #1a1a2e;
 }
+
+/* Navigation - Glass Effect */
+nav {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fca311; /* Gold Color */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
 nav ul {
     list-style: none;
+    display: flex;
+    margin: 0;
     padding: 0;
 }
+
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+    margin-left: 30px;
 }
-nav a {
+
+nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-    padding: 20px;
+
+nav ul li a:hover {
+    color: #fca311;
 }
+
+/* Hero Sections (Photo Backgrounds) */
 header {
-    background: #333;
-    color: #fff;
-    padding-top: 30px;
-    min-height: 70px;
-    border-bottom: #0779e4 3px solid;
+    height: 80vh; /* Full screen height */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    position: relative;
 }
+
+/* Dark Overlay on photos to make text visible */
+header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+header h1, header p, header .btn {
+    position: relative;
+    z-index: 2; /* Bring text on top of overlay */
+}
+
 header h1 {
-    margin: 0;
-    padding-bottom: 10px;
+    font-size: 4rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
+
+header p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+}
+
+/* Buttons */
 .btn {
-    display: inline-block;
-    background: #0779e4;
-    color: #fff;
-    padding: 10px 20px;
+    padding: 15px 40px;
+    background: linear-gradient(45deg, #fca311, #e63946);
+    color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
-footer {
-    background: #333;
-    color: #fff;
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(252, 163, 17, 0.4);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
     text-align: center;
-    padding: 10px;
-    margin-top: 20px;
+}
+
+/* Book Grid Cards */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.book-card {
+    background: #16213e;
+    border-radius: 15px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.book-card:hover {
+    transform: scale(1.05);
+    background: #0f3460;
+    border-color: #fca311;
+}
+
+.book-card h3 { color: #fca311; }
+.price { color: #4cc9f0; font-size: 1.2rem; font-weight: bold; }
+
+/* Contact Form */
+form {
+    background: #16213e;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    background: #0f3460;
+    border: 1px solid #1a1a2e;
+    color: #fff;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #fca311;
+}
+
+/* Footer */
+footer {
+    background: #0f3460;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+    border-top: 5px solid #fca311;
 }

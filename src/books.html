@@ -3,28 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChapterHub - Book Collection</title>
+    <title>ChapterHub - Collection</title>
     <link rel="stylesheet" href="styles/main.css">
     <style>
-        .book-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
+        /* Books Page Background Image */
+        header {
+            background-image: url('https://images.unsplash.com/photo-1495446815901-a7297e633e8d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            height: 50vh; /* Smaller header for sub-pages */
         }
-        .book-card {
-            background: #fff;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            text-align: center;
-        }
-        .book-card h3 { color: #333; }
-        .price { color: #e74c3c; font-weight: bold; }
     </style>
 </head>
 <body>
     <nav>
+        <div class="logo">ChapterHub</div>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="books.html">Books</a></li>
@@ -33,35 +24,41 @@
     </nav>
 
     <header>
-        <h1>Our Book Collection</h1>
-        <p>Browse through our top-rated technical and fiction books.</p>
+        <h1>Our Premium Collection</h1>
+        <p>Hand-picked books for the modern developer and reader.</p>
     </header>
 
     <div class="container">
         <div class="book-grid">
             <div class="book-card">
-                <h3>DevOps Handbook</h3>
-                <p>Mastering the art of CI/CD.</p>
+                <h3>The DevOps Handbook</h3>
+                <p>How to create world-class agility, reliability, and security in technology organizations.</p>
                 <p class="price">$45.00</p>
-                <a href="#" class="btn">Buy Now</a>
+                <a href="#" class="btn">Add to Cart</a>
             </div>
             <div class="book-card">
-                <h3>The Git Guide</h3>
-                <p>Version control made simple.</p>
+                <h3>Pro Git</h3>
+                <p>Everything you need to know about Git. Master branching and merging.</p>
                 <p class="price">$25.00</p>
-                <a href="#" class="btn">Buy Now</a>
+                <a href="#" class="btn">Add to Cart</a>
             </div>
             <div class="book-card">
-                <h3>Web Design 101</h3>
-                <p>Creating beautiful interfaces.</p>
-                <p class="price">$30.00</p>
-                <a href="#" class="btn">Buy Now</a>
+                <h3>Clean Code</h3>
+                <p>A Handbook of Agile Software Craftsmanship by Robert C. Martin.</p>
+                <p class="price">$35.00</p>
+                <a href="#" class="btn">Add to Cart</a>
+            </div>
+             <div class="book-card">
+                <h3>JavaScript: The Good Parts</h3>
+                <p>Unearthing the rugged hidden nature of JavaScript.</p>
+                <p class="price">$20.00</p>
+                <a href="#" class="btn">Add to Cart</a>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>ChapterHub &copy; 2026</p>
+        <p>&copy; 2026 ChapterHub. All rights reserved.</p>
     </footer>
 </body>
 </html>
