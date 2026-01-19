@@ -13,7 +13,7 @@
 ChapterHub is a modern online book platform designed to showcase a curated collection of technical and fiction books. It serves as a portfolio demonstrating advanced Git workflows and DevOps practices.
 
 ## Live Deployment
-**Live URL:** [මෙතනට ඔයාගේ Vercel Link එක පස්සේ දාන්න ඕන]
+**Live URL:** (https://chapter-hub-zxzo.vercel.app/)
 
 ## Technologies Used
 * HTML5, CSS3, JavaScript
