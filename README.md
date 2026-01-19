@@ -1,1 +1,1 @@
-# ChapterHub Project
+# ChapterHub - Created by Group 05
