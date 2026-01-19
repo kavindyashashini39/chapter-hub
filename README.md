@@ -52,4 +52,4 @@ We implemented the Gitflow branching strategy:
 ## Setup Instructions
 1.  Clone the repository: `git clone [REPO_URL]`
 2.  Navigate to folder: `cd chapter-hub`
-3.  Open `index.html` in your browser.
+3.  Open `index.html` in your browser.Project Status: Completed
