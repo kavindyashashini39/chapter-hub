@@ -1,184 +1,193 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-/* Global Styles */
-body {
-    font-family: 'Poppins', sans-serif;
+/* Global Reset */
+* {
     margin: 0;
     padding: 0;
-    color: #fff;
-    background-color: #1a1a2e;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Navigation - Glass Effect */
+body {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
 nav {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px 5%;
+    background-color: #1e293b;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 100;
 }
 
-nav .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #fca311; /* Gold Color */
-    text-transform: uppercase;
-    letter-spacing: 2px;
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fca311;
 }
 
 nav ul {
-    list-style: none;
     display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    margin-left: 30px;
+    list-style: none;
+    gap: 30px;
 }
 
 nav ul li a {
-    color: #fff;
+    color: #e2e8f0;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
 }
 
 nav ul li a:hover {
     color: #fca311;
 }
 
-/* Hero Sections (Photo Backgrounds) */
+/* Header Section */
 header {
-    height: 80vh; /* Full screen height */
+    height: 60vh;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Parallax effect */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 20px;
     position: relative;
 }
 
-/* Dark Overlay on photos to make text visible */
 header::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 1;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.7); /* Dark Overlay */
 }
 
 header h1, header p, header .btn {
     position: relative;
-    z-index: 2; /* Bring text on top of overlay */
+    z-index: 1;
 }
 
 header h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    color: #fff;
 }
 
 header p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-    color: #e0e0e0;
-}
-
-/* Buttons */
-.btn {
-    padding: 15px 40px;
-    background: linear-gradient(45deg, #fca311, #e63946);
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: none;
-    cursor: pointer;
-}
-
-.btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(252, 163, 17, 0.4);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    max-width: 600px;
 }
 
 /* Container */
 .container {
     max-width: 1200px;
-    margin: 50px auto;
-    padding: 20px;
+    margin: 40px auto;
+    padding: 0 20px;
     text-align: center;
 }
 
-/* Book Grid Cards */
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #fca311;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background-color: #e59400;
+}
+
+/* Responsive Grid for Books */
 .book-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* This makes cards adjust automatically based on screen size */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+    padding: 20px 0;
 }
 
 .book-card {
-    background: #16213e;
-    border-radius: 15px;
+    background: #1e293b;
     padding: 20px;
-    transition: transform 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    text-align: left;
+    transition: transform 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .book-card:hover {
-    transform: scale(1.05);
-    background: #0f3460;
+    transform: translateY(-5px);
     border-color: #fca311;
 }
 
-.book-card h3 { color: #fca311; }
-.price { color: #4cc9f0; font-size: 1.2rem; font-weight: bold; }
-
-/* Contact Form */
-form {
-    background: #16213e;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    max-width: 600px;
-    margin: 0 auto;
+.book-card h3 {
+    margin-bottom: 10px;
+    color: #fca311;
 }
 
-input, textarea {
-    width: 100%;
-    padding: 15px;
+.price {
+    font-size: 1.2rem;
+    color: #4cc9f0;
     margin: 10px 0;
-    background: #0f3460;
-    border: 1px solid #1a1a2e;
-    color: #fff;
-    border-radius: 5px;
-    font-family: inherit;
+    font-weight: bold;
 }
 
-input:focus, textarea:focus {
-    outline: none;
-    border-color: #fca311;
+/* Checkout Page Specifics */
+.checkout-container {
+    display: flex;
+    flex-wrap: wrap; /* Wraps items on small screens */
+    gap: 30px;
+    justify-content: center;
 }
 
 /* Footer */
 footer {
-    background: #0f3460;
-    padding: 20px;
+    background-color: #1e293b;
     text-align: center;
+    padding: 20px;
     margin-top: 50px;
-    border-top: 5px solid #fca311;
+    color: #94a3b8;
+}
+
+/* --- MOBILE RESPONSIVE TWEAKS --- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .book-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+        padding: 0 10px;
+    }
+
+    .checkout-container {
+        flex-direction: column;
+    }
 }
