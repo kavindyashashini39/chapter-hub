@@ -1,0 +1,13 @@
+{
+  "name": "chapter-hub",
+  "version": "1.0.0",
+  "description": "Online Book Platform for DevOps Assignment",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "build": "echo \"Building project...\" && exit 0",
+    "lint": "echo \"Linting complete\" && exit 0"
+  },
+  "author": "Group 05",
+  "license": "ISC"
+}
