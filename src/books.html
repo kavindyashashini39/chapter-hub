@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChapterHub - Book Collection</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .book-card {
+            background: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .book-card h3 { color: #333; }
+        .price { color: #e74c3c; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Our Book Collection</h1>
+        <p>Browse through our top-rated technical and fiction books.</p>
+    </header>
+
+    <div class="container">
+        <div class="book-grid">
+            <div class="book-card">
+                <h3>DevOps Handbook</h3>
+                <p>Mastering the art of CI/CD.</p>
+                <p class="price">$45.00</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <div class="book-card">
+                <h3>The Git Guide</h3>
+                <p>Version control made simple.</p>
+                <p class="price">$25.00</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+            <div class="book-card">
+                <h3>Web Design 101</h3>
+                <p>Creating beautiful interfaces.</p>
+                <p class="price">$30.00</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>ChapterHub &copy; 2026</p>
+    </footer>
+</body>
+</html>
