@@ -32,8 +32,7 @@
     </header>
 
     <div class="container">
-        <h2 style="color: #fca311; text-align: center; margin-bottom: 30px;">Why Choose Us?</h2>
-        
+        <h2 class="section-title">Why Choose Us?</h2>
         <div class="features-grid">
             <div class="feature-card">
                 <h3>Huge Collection</h3>
@@ -55,21 +54,18 @@
     </footer>
 
     <script>
-        const searchInput = document.getElementById('search-input');
-        const searchButton = document.getElementById('search-button');
-
-        function performSearch() {
-            const query = searchInput.value.trim();
+        document.getElementById('search-button').addEventListener('click', function() {
+            const query = document.getElementById('search-input').value.trim();
             if (query) {
                 window.location.href = `books.html?search=${encodeURIComponent(query)}`;
-            } else {
-                alert("Please enter a book name!");
             }
-        }
+        });
 
-        searchButton.addEventListener('click', performSearch);
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') performSearch();
+        document.getElementById('search-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const query = e.target.value.trim();
+                if (query) window.location.href = `books.html?search=${encodeURIComponent(query)}`;
+            }
         });
     </script>
 </body>
