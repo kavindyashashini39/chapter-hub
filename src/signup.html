@@ -5,42 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChapterHub - Create Account</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body style="background-color: #0f172a; margin: 0; font-family: sans-serif;">
+<body style="background-color: #0f172a; margin: 0; font-family: 'Poppins', sans-serif;">
 
-    <nav>
-        <div class="logo" style="font-size: 1.8rem; font-weight: bold; color: #fca311; padding: 15px 8%;">ChapterHub</div>
-        <div style="position: absolute; right: 8%; top: 25px;">
-            <a href="index.html" style="color: white; text-decoration: none; margin-right: 20px;">Home</a>
-            <a href="books.html" style="color: white; text-decoration: none; margin-right: 20px;">Books</a>
-            <a href="login.html" style="border: 2px solid #fca311; padding: 8px 15px; border-radius: 10px; color: #fca311; text-decoration: none;">Login / Sign Up</a>
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #1e293b; position: sticky; top: 0; z-index: 1000;">
+        <div class="logo" style="font-size: 1.8rem; font-weight: bold; color: #fca311;">ChapterHub</div>
+        <div style="display: flex; gap: 30px; align-items: center;">
+            <a href="index.html" style="color: white; text-decoration: none; font-weight: 500;">Home</a>
+            <a href="books.html" style="color: white; text-decoration: none; font-weight: 500;">Books</a>
+            <a href="login.html" style="border: 2px solid #fca311; padding: 8px 20px; border-radius: 10px; color: #fca311; text-decoration: none; font-weight: bold;">Login / Sign Up</a>
         </div>
     </nav>
 
-    <div style="width: 100%; height: 120px; background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000'); background-size: cover; border-bottom: 3px solid #fca311;"></div>
+    <div style="width: 100%; height: 120px; background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000'); background-size: cover; background-position: center; border-bottom: 3px solid #fca311;"></div>
 
     <div style="display: flex; justify-content: center; align-items: center; padding: 40px 20px;">
-        <div style="background: #1e293b; padding: 40px; border-radius: 25px; width: 100%; max-width: 400px; text-align: center; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+        <div style="background: #1e293b; padding: 40px; border-radius: 25px; width: 100%; max-width: 420px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);">
             <h2 style="color: #fca311; margin-bottom: 10px;">Create Account</h2>
-            <p style="color: #94a3b8; margin-bottom: 25px;">Enter your details to join us</p>
+            <p style="color: #94a3b8; margin-bottom: 25px;">Join our community today!</p>
 
-            <form>
-                <input type="text" placeholder="Full Name" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #475569; background: #0f172a; color: white; outline: none; box-sizing: border-box;">
+            <div id="success-message" style="display: none; background: rgba(34, 197, 94, 0.1); color: #22c55e; padding: 15px; border-radius: 12px; border: 1px solid #22c55e; margin-bottom: 20px; font-size: 0.9rem;">
+                <i class="fa-solid fa-circle-check"></i> Registration Successful! Redirecting to Login...
+            </div>
+
+            <p id="error-msg" style="color: #ff4d4d; background: rgba(255, 77, 77, 0.1); padding: 10px; border-radius: 8px; margin-bottom: 20px; display: none; font-size: 0.9rem;">
+                <i class="fa-solid fa-circle-exclamation"></i> Passwords do not match!
+            </p>
+
+            <form id="signupForm">
+                <input type="text" id="newName" placeholder="Full Name" required style="width: 100%; padding: 13px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: white; outline: none; box-sizing: border-box;">
                 
-                <input type="email" placeholder="Email Address" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #475569; background: #0f172a; color: white; outline: none; box-sizing: border-box;">
+                <input type="email" id="newEmail" placeholder="Email Address" required style="width: 100%; padding: 13px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: white; outline: none; box-sizing: border-box;">
                 
-                <input type="password" placeholder="Password" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #475569; background: #0f172a; color: white; outline: none; box-sizing: border-box;">
+                <input type="password" id="newPass" placeholder="Create Password" required style="width: 100%; padding: 13px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: white; outline: none; box-sizing: border-box;">
                 
-                <input type="password" placeholder="Confirm Password" required style="width: 100%; padding: 12px; margin-bottom: 20px; border-radius: 10px; border: 1px solid #475569; background: #0f172a; color: white; outline: none; box-sizing: border-box;">
+                <input type="password" id="confirmPass" placeholder="Confirm Password" required style="width: 100%; padding: 13px; margin-bottom: 20px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: white; outline: none; box-sizing: border-box;">
                 
-                <button type="submit" style="width: 100%; padding: 12px; background: #fca311; border: none; border-radius: 10px; font-weight: bold; font-size: 1rem; cursor: pointer; color: #0f172a;">Sign Up</button>
+                <button type="submit" style="width: 100%; padding: 14px; background: #fca311; border: none; border-radius: 12px; font-weight: bold; font-size: 1rem; cursor: pointer; color: #0f172a; transition: 0.3s;">Sign Up Now</button>
             </form>
 
-            <p style="margin-top: 20px; font-size: 0.9rem; color: #94a3b8;">
-                Already have an account? <a href="login.html" style="color: #fca311; text-decoration: none;">Log In</a>
+            <p style="margin-top: 25px; font-size: 0.9rem; color: #94a3b8;">
+                Already have an account? <a href="login.html" style="color: #fca311; text-decoration: none; font-weight: bold;">Login</a>
             </p>
         </div>
     </div>
 
-</body>
-</html>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const pass = document.getElementById('newPass').value;
+            const confirm = document.getElementById('confirmPass').value;
+            const errorMsg = document.getElementById('error-msg');
+            const successMsg = document.getElementById('success-message');
+            const signupForm = document.getElementById('signupForm');
+
+            if (pass !== confirm) {
+                // Password වැරදි නම්
+                errorMsg.style.display = "block";
+                successMsg.style.display = "none";
+                document.getElementById('confirmPass').style.borderColor = "#ff4d4d";
+            } else {
+                // ඔක්කොම හරි නම්
+                errorMsg.style.display = "none";
+                successMsg.style.display = "block";
+                
+                // Form එක disable කිරීම
+                signupForm.style.opacity = "0.4";
+                signupForm.style.pointerEvents = "none";
+
+                // තත්පර 2.5 කින් Login පේජ් එක
