@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChapterHub - Home</title>
-    <link rel="stylesheet" href="main.css"> </head>
+    <link rel="stylesheet" href="css/main.css">
+</head>
 <body>
     <nav>
         <div class="logo">ChapterHub</div>
@@ -13,6 +15,7 @@
             <li><a href="login.html" class="cta-button">Login / Sign Up</a></li>
         </ul>
     </nav>
+
     <header class="hero-section">
         <h1>Unlock Your Next Adventure</h1>
         <p>The world's most immersive online book platform.</p>
@@ -20,13 +23,31 @@
             <input type="text" placeholder="Search for books, authors or genres...">
             <button>Search</button>
         </div>
-        <a href="books.html" class="explore-link">Explore Library</a>
+        <a href="books.html" class="explore-btn">Explore Library</a>
     </header>
-    <div class="container" style="text-align: center;">
-        <h2 style="color: #fca311; margin-bottom: 40px; font-size: 2.5rem;">Why Choose Us?</h2>
+
+    <div class="container">
+        <h2 class="section-title" style="text-align: center; color: #fca311; margin-bottom: 40px; font-size: 2.5rem;">Why Choose Us?</h2>
+        <div class="features-grid" style="display: flex; justify-content: space-around; gap: 20px;">
+            <div class="feature-card" style="background: #1e293b; padding: 30px; border-radius: 15px; text-align: center; flex: 1;">
+                <h3 style="color: #fca311; margin-bottom: 15px;">Huge Collection</h3>
+                <p>Access thousands of books instantly.</p>
+            </div>
+            <div class="feature-card" style="background: #1e293b; padding: 30px; border-radius: 15px; text-align: center; flex: 1;">
+                <h3 style="color: #fca311; margin-bottom: 15px;">Community</h3>
+                <p>Join millions of readers worldwide.</p>
+            </div>
+            <div class="feature-card" style="background: #1e293b; padding: 30px; border-radius: 15px; text-align: center; flex: 1;">
+                <h3 style="color: #fca311; margin-bottom: 15px;">Premium Quality</h3>
+                <p>Curated content just for you.</p>
+            </div>
+        </div>
     </div>
+
     <footer>
-        <p>&copy; 2026 ChapterHub. Designed with ❤️ by Group 05.</p>
+        <p style="text-align: center; padding: 40px; background: #1e293b; margin-top: 50px; color: #94a3b8;">
+            &copy; 2026 ChapterHub. Designed with ❤️ by Group 05.
+        </p>
     </footer>
 </body>
 </html>
