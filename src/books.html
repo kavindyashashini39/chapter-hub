@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChapterHub - Our Books</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav>
@@ -16,18 +17,29 @@
         </ul>
     </nav>
 
+    <div class="library-header">
+        <h1>Linux & DevOps Library</h1>
+        <p>Master the command line, server administration, and cloud infrastructure.</p>
+    </div>
+
     <div class="container">
         <h2 class="section-title">Our Library</h2>
         <div class="book-grid" id="book-display">
             </div>
     </div>
 
+    <footer>
+        <p>&copy; 2026 ChapterHub. Designed with ❤️ by Group 05.</p>
+    </footer>
+
     <script>
+       
         const books = [
-            { title: "The Linux Command Line", author: "William Shotts", price: "$39.99", genre: "Linux" },
-            { title: "How Linux Works", author: "Brian Ward", price: "$44.95", genre: "Linux" },
-            { title: "UNIX & Linux Admin Handbook", author: "Evi Nemeth", price: "$59.99", genre: "DevOps" },
-            { title: "Violent Python", author: "TJ O'Connor", price: "$34.99", genre: "Python" }
+            { title: "The Linux Command Line", author: "William Shotts", price: "$39.99", desc: "A complete introduction to the command line for beginners." },
+            { title: "How Linux Works", author: "Brian Ward", price: "$44.95", desc: "What every superuser should know about the OS logic." },
+            { title: "UNIX & Linux Admin Handbook", author: "Evi Nemeth", price: "$59.99", desc: "The definitive guide to system administration." },
+            { title: "Linux Bible", author: "Christopher Negus", price: "$49.99", desc: "The comprehensive tutorial and reference for Linux." },
+            { title: "Violent Python", author: "TJ O'Connor", price: "$34.99", desc: "A cookbook for hackers, forensic analysts, and engineers." }
         ];
 
         function displayBooks() {
@@ -35,24 +47,32 @@
             const searchQuery = urlParams.get('search')?.toLowerCase() || "";
             const displayArea = document.getElementById('book-display');
             
+            
             const filtered = books.filter(b => 
                 b.title.toLowerCase().includes(searchQuery) || 
                 b.author.toLowerCase().includes(searchQuery)
             );
 
+            
             displayArea.innerHTML = filtered.map(book => `
                 <div class="book-card">
-                    <h3>${book.title}</h3>
-                    <p>By ${book.author}</p>
-                    <div class="price">${book.price}</div>
-                    <button class="btn">Buy Now</button>
+                    <div class="card-content">
+                        <h3>${book.title}</h3>
+                        <p class="author">By ${book.author}</p>
+                        <p class="desc">${book.desc}</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">${book.price}</div>
+                        <button class="btn-buy">Buy Now</button>
+                    </div>
                 </div>
             `).join('');
 
             if(filtered.length === 0) {
-                displayArea.innerHTML = "<p>No books found for your search.</p>";
+                displayArea.innerHTML = "<p style='grid-column: 1/-1; text-align: center;'>No books found.</p>";
             }
         }
+
         window.onload = displayBooks;
     </script>
 </body>
