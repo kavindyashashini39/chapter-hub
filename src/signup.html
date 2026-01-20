@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChapterHub - Sign Up</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body style="background-color: #0f172a; margin: 0; font-family: 'Poppins', sans-serif;">
 
+    <nav>
+        <div class="logo">ChapterHub</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="login.html" class="cta-button">Login / Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <div class="login-banner"></div>
+
+    <div class="login-container">
+        <div class="login-card">
+            <h2>Create Account</h2>
+            <p>Join ChapterHub today!</p>
+            
+            <form id="signupForm">
+                <input type="text" id="newName" placeholder="Full Name" required>
+                <input type="email" id="newEmail" placeholder="Email Address" required>
+                <input type="password" id="newPass" placeholder="Password" required>
+                <input type="password" id="confirmPass" placeholder="Confirm Password" required>
+                
+                <p id="error-msg" style="color: #ff4d4d; font-size: 0.8rem; margin-bottom: 15px; display: none;">
+                    Passwords do not match!
+                </p>
+
+                <button type="submit" class="login-btn">Sign Up</button>
+            </form>
+            
+            <p class="new-user">Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            const p1 = document.getElementById('newPass').value;
+            const p2 = document.getElementById('confirmPass').value;
+            const err = document.getElementById('error-msg');
+
+            if (p1 !== p2) {
+                e.preventDefault(); // Form එක යවන එක නවත්තනවා
+                err.style.display = "block";
+            } else {
+                alert("Account Created Successfully!");
+            }
+        });
+    </script>
+</body>
+</html>
