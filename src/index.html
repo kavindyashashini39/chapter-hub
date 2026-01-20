@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChapterHub - Home</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav>
@@ -21,15 +22,18 @@
         <p>The world's most immersive online book platform.</p>
         
         <div class="search-container">
-            <input type="text" placeholder="Search for books, authors or genres...">
-            <button type="submit">Search</button>
+            <input type="text" id="search-input" placeholder="Search for books, authors or genres...">
+            <button type="button" id="search-button">
+                <i class="fas fa-search"></i> Search
+            </button>
         </div>
 
         <a href="books.html" class="btn">Explore Library</a>
     </header>
 
     <div class="container">
-        <h2 style="color: #fca311; text-align: center;">Why Choose Us?</h2>
+        <h2 style="color: #fca311; text-align: center; margin-bottom: 30px;">Why Choose Us?</h2>
+        
         <div class="features-grid">
             <div class="feature-card">
                 <h3>Huge Collection</h3>
@@ -49,5 +53,24 @@
     <footer>
         <p>&copy; 2026 ChapterHub. Designed with ❤️ by Group 05.</p>
     </footer>
+
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const searchButton = document.getElementById('search-button');
+
+        function performSearch() {
+            const query = searchInput.value.trim();
+            if (query) {
+                window.location.href = `books.html?search=${encodeURIComponent(query)}`;
+            } else {
+                alert("Please enter a book name!");
+            }
+        }
+
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') performSearch();
+        });
+    </script>
 </body>
 </html>
