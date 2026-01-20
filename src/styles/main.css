@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
@@ -21,7 +21,7 @@ nav {
     background-color: #1e293b;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .logo {
@@ -33,12 +33,12 @@ nav {
 nav ul {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 25px;
     align-items: center;
 }
 
 nav ul li a {
-    color: #e2e8f0;
+    color: #fff;
     text-decoration: none;
     transition: 0.3s;
 }
@@ -47,105 +47,82 @@ nav ul li a:hover { color: #fca311; }
 
 .cta-button {
     border: 2px solid #fca311;
-    padding: 8px 20px;
+    padding: 8px 18px;
     border-radius: 8px;
     color: #fca311 !important;
     font-weight: bold;
-    text-decoration: none;
 }
 
-/* Header & Search */
-header {
-    height: 70vh;
-    background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
-                      url('https://images.unsplash.com/photo-1507842217153-e52fbc0d0b62?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-}
-
-.search-container {
-    display: flex;
-    background: #fff;
-    padding: 5px;
-    border-radius: 50px;
-    width: 100%;
-    max-width: 550px;
-    margin: 25px 0;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
-
-.search-container input {
-    flex: 1;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 50px;
-    outline: none;
-    color: #333;
-}
-
-.search-container button {
-    background: #fca311;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #fca311;
-    color: #000;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-/* Features Grid - මෙතැනින් තමයි හරස් අතට හැදෙන්නේ */
+/* Main Container */
 .container {
     max-width: 1200px;
-    margin: 60px auto;
+    margin: 40px auto;
     padding: 0 20px;
 }
 
-.features-grid {
-    display: flex;         /* කොටු හරස් අතට ගැනීමට */
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;       /* Mobile වලදී එකක් යට එකක් යාමට */
+.section-title {
+    text-align: center;
+    color: #fca311;
+    margin-bottom: 30px;
+    font-size: 2rem;
 }
 
-.feature-card {
+/* --- පොත් පේළියට පෙන්වන Grid එක (වැදගත්ම කොටස) --- */
+.book-grid {
+    display: grid;
+    /* එක පේළියක අවම 250px පළල ඇති කොටු පිරවීමට */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px; /* කොටු අතර පරතරය */
+}
+
+.book-card {
     background: #1e293b;
-    padding: 35px;
+    padding: 25px;
     border-radius: 15px;
-    width: 320px;
     text-align: center;
-    border-bottom: 5px solid #fca311;
-    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.feature-card:hover { transform: translateY(-10px); }
+.book-card:hover {
+    transform: translateY(-10px);
+    border-color: #fca311;
+}
 
-footer {
-    background: #1e293b;
-    text-align: center;
-    padding: 30px;
-    margin-top: 50px;
+.book-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.book-card p {
+    font-size: 0.95rem;
     color: #94a3b8;
+    margin-bottom: 15px;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .features-grid { flex-direction: column; align-items: center; }
+.book-card .price {
+    font-size: 1.4rem;
+    color: #fca311;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
+
+/* Common Buttons */
+.btn {
+    background: #fca311;
+    color: #000;
+    padding: 10px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover { background: #e59400; }
