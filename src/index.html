@@ -18,48 +18,60 @@
     </nav>
 
     <header class="hero-section">
-        <h1>Unlock Your Next Adventure</h1>
-        <p>The world's most immersive online book platform.</p>
-        
-        <div class="search-box-container">
-            <input type="text" id="home-search" placeholder="Search for books, authors or genres...">
-            <button type="button" onclick="goToBooks()">Search</button>
-        </div>
+        <div class="hero-content">
+            <h1>Unlock Your Next Adventure</h1>
+            <p>The world's most immersive online book platform.</p>
+            
+            <div class="search-wrapper">
+                <input type="text" id="home-search" placeholder="Search for books, authors or genres...">
+                <button type="button" onclick="searchNow()">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
 
-        <a href="books.html" class="explore-btn">Explore Library</a>
+            <a href="books.html" class="primary-btn">Explore Library</a>
+        </div>
     </header>
 
-    <div class="container">
+    <section class="container">
         <h2 class="section-title">Why Choose Us?</h2>
-        <div class="features-grid">
+        <div class="features-row">
             <div class="feature-card">
+                <i class="fas fa-book-open"></i>
                 <h3>Huge Collection</h3>
-                <p>Access thousands of books instantly.</p>
+                <p>Access thousands of books instantly from anywhere in the world.</p>
             </div>
             <div class="feature-card">
+                <i class="fas fa-users"></i>
                 <h3>Community</h3>
-                <p>Join millions of readers worldwide.</p>
+                <p>Join millions of readers and share your thoughts on your favorite titles.</p>
             </div>
             <div class="feature-card">
+                <i class="fas fa-award"></i>
                 <h3>Premium Quality</h3>
-                <p>Curated content just for you.</p>
+                <p>Curated high-quality content designed just for your reading pleasure.</p>
             </div>
         </div>
-    </div>
+    </section>
 
     <footer>
         <p>&copy; 2026 ChapterHub. Designed with ❤️ by Group 05.</p>
     </footer>
 
     <script>
-        function goToBooks() {
-            const val = document.getElementById('home-search').value.trim();
-            if(val) {
-                window.location.href = `books.html?search=${encodeURIComponent(val)}`;
+        function searchNow() {
+            const query = document.getElementById('home-search').value.trim();
+            if(query) {
+                window.location.href = `books.html?search=${encodeURIComponent(query)}`;
             } else {
                 window.location.href = `books.html`;
             }
         }
+
+        // Enter key එක එබූ විට සෙවුම ක්‍රියාත්මක වීමට
+        document.getElementById('home-search').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') searchNow();
+        });
     </script>
 </body>
 </html>
