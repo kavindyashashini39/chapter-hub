@@ -8,7 +8,39 @@
     <style>
         /* Home Page Background Image */
         header {
-            background-image: url('https://images.unsplash.com/photo-1507842217153-e52fbc0d0b62?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                              url('https://images.unsplash.com/photo-1507842217153-e52fbc0d0b62?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Navigation Button Styling - මෙහිද ඇතුළත් කර ඇත */
+        nav ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        .cta-button {
+            border: 2px solid #fca311;
+            padding: 8px 20px;
+            border-radius: 8px;
+            color: #fca311 !important;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #fca311;
+            color: #14213d !important; /* පසුබිම තැඹිලි වූ විට අකුරු තද නිල් පැහැ වේ */
+            box-shadow: 0 0 10px rgba(252, 163, 17, 0.5);
         }
     </style>
 </head>
@@ -18,7 +50,7 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="books.html">Books</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html" class="cta-button">Login / Sign Up</a></li>
         </ul>
     </nav>
 
@@ -29,17 +61,17 @@
     </header>
 
     <div class="container">
-        <h2 style="color: #fca311;">Why Choose Us?</h2>
+        <h2 style="color: #fca311; text-align: center;">Why Choose Us?</h2>
         <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px; flex-wrap: wrap;">
-            <div style="background: #16213e; padding: 20px; border-radius: 10px; width: 300px;">
+            <div style="background: #16213e; padding: 30px; border-radius: 12px; width: 300px; text-align: center; border-bottom: 4px solid #fca311;">
                 <h3>Huge Collection</h3>
                 <p>Access thousands of books instantly.</p>
             </div>
-            <div style="background: #16213e; padding: 20px; border-radius: 10px; width: 300px;">
+            <div style="background: #16213e; padding: 30px; border-radius: 12px; width: 300px; text-align: center; border-bottom: 4px solid #fca311;">
                 <h3>Community</h3>
                 <p>Join millions of readers worldwide.</p>
             </div>
-            <div style="background: #16213e; padding: 20px; border-radius: 10px; width: 300px;">
+            <div style="background: #16213e; padding: 30px; border-radius: 12px; width: 300px; text-align: center; border-bottom: 4px solid #fca311;">
                 <h3>Premium Quality</h3>
                 <p>Curated content just for you.</p>
             </div>
