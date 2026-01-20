@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChapterHub - Our Library</title>
+    <title>ChapterHub - Library</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
@@ -15,55 +14,38 @@
             <li><a href="login.html" class="cta-button">Login / Sign Up</a></li>
         </ul>
     </nav>
-
     <div class="library-header">
-        <h1>Our Library</h1>
-        <p>Master the world of Linux and DevOps with our curated collection.</p>
+        <h1>Linux & DevOps Library</h1>
+        <p>Master the command line, server administration, and cloud infrastructure.</p>
     </div>
-
     <div class="container">
-        <div class="book-grid" id="book-display">
+        <h2 style="text-align: center; color: #fca311; margin-bottom: 40px;">Our Library</h2>
+        <div class="book-grid">
+            <div class="book-card">
+                <h3>The Linux Command Line</h3>
+                <p>By William Shotts</p>
+                <p style="font-size: 0.9rem; color: #94a3b8;">A complete introduction to the command line for beginners.</p>
+                <div class="price">$39.99</div>
+                <button class="btn">Buy Now</button>
             </div>
+            <div class="book-card">
+                <h3>How Linux Works</h3>
+                <p>By Brian Ward</p>
+                <p style="font-size: 0.9rem; color: #94a3b8;">What every superuser should know about the OS logic.</p>
+                <div class="price">$44.95</div>
+                <button class="btn">Buy Now</button>
+            </div>
+            <div class="book-card">
+                <h3>UNIX & Linux Admin Handbook</h3>
+                <p>By Evi Nemeth</p>
+                <p style="font-size: 0.9rem; color: #94a3b8;">The definitive guide to system administration.</p>
+                <div class="price">$59.99</div>
+                <button class="btn">Buy Now</button>
+            </div>
+        </div>
     </div>
-
     <footer>
         <p>&copy; 2026 ChapterHub. Designed with ❤️ by Group 05.</p>
     </footer>
-
-    <script>
-        const books = [
-            { 
-                title: "The Linux Command Line", 
-                author: "William Shotts", 
-                price: "$39.99", 
-                image: "https://m.media-amazon.com/images/I/7106v9S9pTL._AC_UF1000,1000_QL80_.jpg" 
-            },
-            { 
-                title: "How Linux Works", 
-                author: "Brian Ward", 
-                price: "$44.95", 
-                image: "https://m.media-amazon.com/images/I/817EAnB-vBL._AC_UF1000,1000_QL80_.jpg"
-            },
-            { 
-                title: "UNIX & Linux Admin Handbook", 
-                author: "Evi Nemeth", 
-                price: "$59.99", 
-                image: "https://m.media-amazon.com/images/I/91N9+U7y9OL._AC_UF1000,1000_QL80_.jpg"
-            }
-        ];
-
-        const displayArea = document.getElementById('book-display');
-        displayArea.innerHTML = books.map(book => `
-            <div class="book-card">
-                <div class="book-cover-wrapper">
-                    <img src="${book.image}" alt="${book.title}" class="book-cover" onerror="this.src='https://via.placeholder.com/200x250?text=No+Image'">
-                </div>
-                <h3>${book.title}</h3>
-                <p style="color: #94a3b8; margin: 10px 0;">By ${book.author}</p>
-                <div class="price">${book.price}</div>
-                <button class="btn">Buy Now</button>
-            </div>
-        `).join('');
-    </script>
 </body>
 </html>
