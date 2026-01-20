@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChapterHub - Login & Sign Up</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="auth-page-bg">
 
+    <nav>
+        <div class="logo">ChapterHub</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="login.html" class="cta-button">Login / Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <div class="auth-wrapper">
+        <div class="form-container">
+            <div class="toggle-box">
+                <div id="btn-active"></div>
+                <button type="button" class="toggle-btn" onclick="showLogin()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="showRegister()">Register</button>
+            </div>
+
+            <div class="social-auth">
+                <i class="fab fa-google"></i>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-github"></i>
+            </div>
+
+            <form id="login-form" class="auth-form">
+                <input type="text" class="input-field" placeholder="Username or Email" required>
+                <input type="password" class="input-field" placeholder="Password" required>
+                <div class="form-options">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="auth-submit">Log In</button>
+            </form>
+
+            <form id="register-form" class="auth-form">
+                <input type="text" class="input-field" placeholder="Full Name" required>
+                <input type="email" class="input-field" placeholder="Email Address" required>
+                <input type="password" class="input-field" placeholder="Create Password" required>
+                <div class="form-options">
+                    <label><input type="checkbox" required> I agree to terms</label>
+                </div>
+                <button type="submit" class="auth-submit">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var loginForm = document.getElementById("login-form");
+        var regForm = document.getElementById("register-form");
+        var btnActive = document.getElementById("btn-active");
+
+        function showRegister() {
+            loginForm.style.left = "-450px";
+            regForm.style.left = "50px";
+            btnActive.style.left = "110px";
+        }
+
+        function showLogin() {
+            loginForm.style.left = "50px";
+            regForm.style.left = "450px";
+            btnActive.style.left = "0";
+        }
+    </script>
+</body>
+</html>
