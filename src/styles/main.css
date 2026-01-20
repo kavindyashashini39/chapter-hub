@@ -39,7 +39,13 @@ nav ul li a { color: #fff; text-decoration: none; font-weight: 500; }
     min-height: 600px; 
 }
 
-/* Book Cover Styling - අත්‍යවශ්‍ය කොටස */
+/* Book Card Hover Effect */
+.book-card:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Book Cover Wrapper - අත්‍යවශ්‍ය කොටස */
 .book-cover-wrapper {
     width: 100%;
     height: 250px; 
@@ -58,14 +64,10 @@ nav ul li a { color: #fff; text-decoration: none; font-weight: 500; }
     max-height: 100%;
     object-fit: contain; 
     display: block;
-    transition: 0.3s;
-}
-
-.book-card:hover .book-cover {
-    transform: scale(1.05);
 }
 
 .price { font-size: 1.5rem; color: #fca311; font-weight: bold; margin: 15px 0; }
-.btn { background: #fca311; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+.btn { background: #fca311; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; color: #000; }
+.btn:hover { background: #ffb740; }
 
 footer { text-align: center; padding: 40px; background: #1e293b; margin-top: 50px; }
