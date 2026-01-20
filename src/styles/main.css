@@ -17,9 +17,9 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
+    padding: 15px 5%; /* Padding මඳක් අඩු කළා */
     background-color: #1e293b;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -35,6 +35,7 @@ nav ul {
     display: flex;
     list-style: none;
     gap: 30px;
+    align-items: center; /* බොත්තම සහ ලින්ක් එකම මට්ටමක තැබීමට */
 }
 
 nav ul li a {
@@ -46,6 +47,22 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #fca311;
+}
+
+/* Login/Sign Up Button විශේෂ සැකසුම */
+.cta-button {
+    border: 2px solid #fca311 !important; /* තැඹිලි වර්ණ border එක */
+    padding: 8px 20px !important;
+    border-radius: 8px !important;
+    color: #fca311 !important;
+    font-weight: bold !important;
+    transition: all 0.3s ease !important;
+}
+
+.cta-button:hover {
+    background-color: #fca311 !important;
+    color: #0f172a !important; /* Hover කළ විට අකුරු තද පැහැ වේ */
+    box-shadow: 0 0 15px rgba(252, 163, 17, 0.4);
 }
 
 /* Header Section */
@@ -89,7 +106,7 @@ header p {
 /* Container */
 .container {
     max-width: 1200px;
-    margin: 40px auto;
+    margin: 60px auto;
     padding: 0 20px;
     text-align: center;
 }
@@ -105,7 +122,7 @@ header p {
     font-weight: bold;
     border: none;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
 .btn:hover {
@@ -113,10 +130,24 @@ header p {
     background-color: #e59400;
 }
 
+/* Why Choose Us Cards */
+.feature-card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+    width: 300px;
+    text-align: center;
+    border-bottom: 4px solid #fca311; /* පහළින් තැඹිලි තීරුව */
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
 /* Responsive Grid for Books */
 .book-grid {
     display: grid;
-    /* This makes cards adjust automatically based on screen size */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     padding: 20px 0;
@@ -148,19 +179,11 @@ header p {
     font-weight: bold;
 }
 
-/* Checkout Page Specifics */
-.checkout-container {
-    display: flex;
-    flex-wrap: wrap; /* Wraps items on small screens */
-    gap: 30px;
-    justify-content: center;
-}
-
 /* Footer */
 footer {
     background-color: #1e293b;
     text-align: center;
-    padding: 20px;
+    padding: 25px;
     margin-top: 50px;
     color: #94a3b8;
 }
@@ -170,6 +193,7 @@ footer {
     nav {
         flex-direction: column;
         gap: 15px;
+        padding: 20px;
     }
 
     nav ul {
@@ -178,16 +202,16 @@ footer {
         text-align: center;
     }
 
+    nav ul li {
+        margin-left: 0;
+    }
+
     header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .book-grid {
-        grid-template-columns: 1fr; /* 1 column on mobile */
+        grid-template-columns: 1fr;
         padding: 0 10px;
-    }
-
-    .checkout-container {
-        flex-direction: column;
     }
 }
