@@ -11,12 +11,12 @@ nav ul li a { color: #fff; text-decoration: none; font-weight: 500; }
 
 /* Home Page Hero Section - Updated with dynamic background */
 .hero-section {
-    height: 80vh; /* උස මදක් වැඩි කර ඇත */
+    height: 80vh;
     background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
                 url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1500&q=80');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Scroll කරන විට ලස්සන cinematic effect එකක් ලබා දෙයි */
+    background-attachment: fixed; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,13 +28,13 @@ nav ul li a { color: #fff; text-decoration: none; font-weight: 500; }
 .hero-section h1 { 
     font-size: 3.5rem; 
     margin-bottom: 10px; 
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* අකුරු කැපී පෙනීමට */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); 
 }
 
 /* Home Search Box - Modern Glassmorphism Style */
 .search-box-container {
-    background: rgba(255, 255, 255, 0.15); /* වීදුරුවක් වැනි පෙනුමක් */
-    backdrop-filter: blur(10px); /* පසුබිම බොඳ කිරීම */
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(10px); 
     padding: 8px;
     border-radius: 50px;
     display: flex;
@@ -50,12 +50,12 @@ nav ul li a { color: #fff; text-decoration: none; font-weight: 500; }
     padding: 12px 25px;
     border-radius: 50px;
     outline: none;
-    color: #fff; /* අකුරු සුදු පාට */
-    background: transparent; /* input එක ඇතුල පේන විදියට */
+    color: #fff; 
+    background: transparent; 
 }
 
 .search-box-container input::placeholder {
-    color: #cbd5e1; /* placeholder එක ලස්සන පැහැයකට */
+    color: #cbd5e1; 
 }
 
 .search-box-container button {
@@ -231,3 +231,36 @@ footer { text-align: center; padding: 40px; background: #1e293b; margin-top: 50p
 }
 
 .auth-submit:hover { background: #e59400; }
+/* Book Cover Styling */
+.book-cover-wrapper {
+    width: 100%;
+    height: 250px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f172a;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.book-cover {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+    transition: 0.3s;
+}
+
+
+.book-card:hover .book-cover {
+    transform: scale(1.1);
+}
+
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 550px; 
+}
