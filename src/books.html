@@ -16,8 +16,8 @@
         </ul>
     </nav>
 
-    <div class="library-header">
-        <h1>Our Library</h1>
+    <div class="library-header" style="text-align: center; padding: 50px;">
+        <h1 style="font-size: 3rem; color: #fca311;">Our Library</h1>
     </div>
 
     <div class="container">
@@ -31,27 +31,9 @@
 
     <script>
         const books = [
-            { 
-                title: "The Linux Command Line", 
-                author: "William Shotts", 
-                price: "$39.99", 
-                desc: "A complete introduction to the command line for beginners.",
-                image: "https://m.media-amazon.com/images/I/7106v9S9pTL._AC_UF1000,1000_QL80_.jpg" 
-            },
-            { 
-                title: "How Linux Works", 
-                author: "Brian Ward", 
-                price: "$44.95", 
-                desc: "What every superuser should know about the OS logic.",
-                image: "https://m.media-amazon.com/images/I/817EAnB-vBL._AC_UF1000,1000_QL80_.jpg"
-            },
-            { 
-                title: "UNIX & Linux Admin Handbook", 
-                author: "Evi Nemeth", 
-                price: "$59.99", 
-                desc: "The definitive guide to system administration.",
-                image: "https://m.media-amazon.com/images/I/91N9+U7y9OL._AC_UF1000,1000_QL80_.jpg"
-            }
+            { title: "The Linux Command Line", author: "William Shotts", price: "$39.99", desc: "A complete introduction to the command line.", image: "https://m.media-amazon.com/images/I/7106v9S9pTL._AC_UF1000,1000_QL80_.jpg" },
+            { title: "How Linux Works", author: "Brian Ward", price: "$44.95", desc: "What every superuser should know.", image: "https://m.media-amazon.com/images/I/817EAnB-vBL._AC_UF1000,1000_QL80_.jpg" },
+            { title: "UNIX & Linux Admin Handbook", author: "Evi Nemeth", price: "$59.99", desc: "The definitive guide to administration.", image: "https://m.media-amazon.com/images/I/91N9+U7y9OL._AC_UF1000,1000_QL80_.jpg" }
         ];
 
         const displayArea = document.getElementById('book-display');
@@ -62,7 +44,6 @@
                 </div>
                 <h3>${book.title}</h3>
                 <p class="author">By ${book.author}</p>
-                <p class="desc">${book.desc}</p>
                 <div class="price">${book.price}</div>
                 <button class="btn">Buy Now</button>
             </div>
