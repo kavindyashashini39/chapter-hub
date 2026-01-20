@@ -72,31 +72,20 @@
         ];
 
         function displayBooks() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const searchQuery = urlParams.get('search')?.toLowerCase() || "";
             const displayArea = document.getElementById('book-display');
             
-            const filtered = books.filter(b => 
-                b.title.toLowerCase().includes(searchQuery) || 
-                b.author.toLowerCase().includes(searchQuery)
-            );
-
-            if (filtered.length > 0) {
-                displayArea.innerHTML = filtered.map(book => `
-                    <div class="book-card">
-                        <div class="book-cover-wrapper">
-                            <img src="${book.image}" alt="${book.title}" class="book-cover">
-                        </div>
-                        <h3>${book.title}</h3>
-                        <p class="author">By ${book.author}</p>
-                        <p class="desc">${book.desc}</p>
-                        <div class="price">${book.price}</div>
-                        <button class="btn">Buy Now</button>
+            displayArea.innerHTML = books.map(book => `
+                <div class="book-card">
+                    <div class="book-cover-wrapper">
+                        <img src="${book.image}" alt="${book.title}" class="book-cover">
                     </div>
-                `).join('');
-            } else {
-                displayArea.innerHTML = "<p>No books found.</p>";
-            }
+                    <h3>${book.title}</h3>
+                    <p class="author">By ${book.author}</p>
+                    <p class="desc">${book.desc}</p>
+                    <div class="price">${book.price}</div>
+                    <button class="btn">Buy Now</button>
+                </div>
+            `).join('');
         }
 
         window.onload = displayBooks;
