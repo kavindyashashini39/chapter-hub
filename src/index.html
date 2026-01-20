@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChapterHub - Home</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav>
@@ -18,34 +19,47 @@
 
     <header class="hero-section">
         <h1>Unlock Your Next Adventure</h1>
-        <p style="color: #94a3b8; font-size: 1.2rem;">The world's most immersive online book platform.</p>
+        <p>The world's most immersive online book platform.</p>
+        
         <div class="search-box-container">
-            <input type="text" placeholder="Search for books, authors or genres...">
-            <button>Search</button>
+            <input type="text" id="home-search" placeholder="Search for books, authors or genres...">
+            <button type="button" onclick="goToBooks()">Search</button>
         </div>
+
         <a href="books.html" class="explore-btn">Explore Library</a>
     </header>
 
-    <section class="container">
-        <h2 style="text-align: center; font-size: 2.5rem; color: #fca311;">Why Choose Us?</h2>
-        <div class="grid">
-            <div class="card">
+    <div class="container">
+        <h2 class="section-title">Why Choose Us?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
                 <h3>Huge Collection</h3>
-                <p style="color: #94a3b8;">Access thousands of books instantly from anywhere in the world.</p>
+                <p>Access thousands of books instantly.</p>
             </div>
-            <div class="card">
+            <div class="feature-card">
                 <h3>Community</h3>
-                <p style="color: #94a3b8;">Join millions of readers worldwide and share your thoughts.</p>
+                <p>Join millions of readers worldwide.</p>
             </div>
-            <div class="card">
+            <div class="feature-card">
                 <h3>Premium Quality</h3>
-                <p style="color: #94a3b8;">Hand-picked curated content just for your reading pleasure.</p>
+                <p>Curated content just for you.</p>
             </div>
         </div>
-    </section>
+    </div>
 
     <footer>
         <p>&copy; 2026 ChapterHub. Designed with ❤️ by Group 05.</p>
     </footer>
+
+    <script>
+        function goToBooks() {
+            const val = document.getElementById('home-search').value.trim();
+            if(val) {
+                window.location.href = `books.html?search=${encodeURIComponent(val)}`;
+            } else {
+                window.location.href = `books.html`;
+            }
+        }
+    </script>
 </body>
 </html>
