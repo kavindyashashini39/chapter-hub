@@ -1,5 +1,5 @@
-/* ChapterHub - No Image Dark Theme */
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+/* ChapterHub - No Images Dark Theme */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 body { background-color: #0f172a; color: #ffffff; line-height: 1.6; }
 
 /* Navigation */
@@ -10,28 +10,28 @@ nav ul li a { color: #fff; text-decoration: none; font-weight: 500; transition: 
 nav ul li a:hover { color: #fca311; }
 .cta-button { border: 2px solid #fca311; padding: 8px 20px; border-radius: 10px; color: #fca311 !important; }
 
-/* Hero Section */
-.hero-section { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: #0f172a; }
-.hero-section h1 { font-size: 3.5rem; margin-bottom: 15px; font-weight: 800; }
-.search-box-container { background: #fff; padding: 5px; border-radius: 50px; display: flex; width: 100%; max-width: 600px; margin: 25px 0; }
-.search-box-container input { flex: 1; border: none; padding: 12px 20px; border-radius: 50px; outline: none; color: #333; }
+/* Sections */
+.hero-section { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+.hero-section h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; }
+.search-box-container { background: #fff; padding: 5px; border-radius: 50px; display: flex; width: 100%; max-width: 600px; margin: 30px 0; }
+.search-box-container input { flex: 1; border: none; padding: 12px 25px; border-radius: 50px; outline: none; color: #333; }
 .search-box-container button { background: #fca311; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; }
-.explore-btn { background: #fca311; color: #000; text-decoration: none; padding: 15px 35px; border-radius: 10px; font-weight: bold; }
+.explore-btn { background: #fca311; color: #000; text-decoration: none; padding: 15px 40px; border-radius: 12px; font-weight: bold; }
 
-/* Why Choose Us Section */
+/* Grid & Cards */
 .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
-.features-grid { display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
-.feature-card { 
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+.card { 
     background: #1e293b; 
     padding: 40px 30px; 
-    border-radius: 20px; 
+    border-radius: 25px; 
     text-align: center; 
-    width: 320px; 
-    border-bottom: 5px solid #fca311; /* පල්ලෙහායින් ලස්සන ඉරක් */
-    transition: 0.3s;
+    border-bottom: 6px solid #fca311; 
+    transition: 0.3s ease;
 }
-.feature-card:hover { transform: translateY(-10px); }
-.feature-card h3 { color: #fca311; margin-bottom: 15px; font-size: 1.5rem; }
-.feature-card p { color: #94a3b8; }
+.card:hover { transform: translateY(-10px); }
+.card h3 { font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
+.price { font-size: 2rem; color: #fca311; font-weight: 800; margin: 20px 0; }
+.buy-btn { background: #fca311; color: #000; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; }
 
-footer { text-align: center; padding: 50px; background: #1e293b; margin-top: 50px; color: #94a3b8; }
+footer { text-align: center; padding: 60px; background: #0f172a; border-top: 1px solid #1e293b; color: #64748b; }
