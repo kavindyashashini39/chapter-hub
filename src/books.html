@@ -1,87 +1,74 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChapterHub - Our Books</title>
+    <title>ChapterHub - Library</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
-    <nav>
-        <div class="logo">ChapterHub</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="books.html">Books</a></li>
-            <li><a href="login.html" class="cta-button">Login / Sign Up</a></li>
-        </ul>
+<body style="background-color: #0f172a; margin: 0; font-family: 'Poppins', sans-serif; color: white;">
+
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #1e293b; position: sticky; top: 0; z-index: 1000;">
+        <div class="logo" style="font-size: 1.8rem; font-weight: bold; color: #fca311;">ChapterHub</div>
+        <div style="display: flex; gap: 30px; align-items: center;">
+            <a href="index.html" style="color: white; text-decoration: none; font-weight: 500;">Home</a>
+            <a href="books.html" style="color: white; text-decoration: none; font-weight: 500;">Books</a>
+            <a href="login.html" style="border: 2px solid #fca311; padding: 8px 20px; border-radius: 10px; color: #fca311; text-decoration: none; font-weight: bold;">Login / Sign Up</a>
+        </div>
     </nav>
 
-    <div class="library-header">
-        <h1>Linux & DevOps Library</h1>
-        <p>Master the command line, server administration, and cloud infrastructure.</p>
+    <div style="
+        width: 100%; 
+        padding: 120px 20px; 
+        text-align: center; 
+        background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2000'); 
+        background-size: cover; 
+        background-position: center; 
+        background-attachment: fixed;
+        border-bottom: 3px solid #fca311;">
+        
+        <h1 style="color: white; font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: 2px;">Linux & DevOps Library</h1>
+        <p style="color: #fca311; font-size: 1.3rem; margin-top: 15px; font-weight: 500;">Master the command line and cloud infrastructure.</p>
     </div>
 
-    <div class="container">
-        <h2 class="section-title">Our Library</h2>
-        <div class="book-grid" id="book-display">
+    <div style="padding: 60px 8%; text-align: center;">
+        <h2 style="font-size: 2.5rem; color: #fca311; margin-bottom: 40px;">Our Library</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            
+            <div style="background: #1e293b; padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;">
+                <h3 style="color: white; font-size: 1.4rem;">The Linux Command Line</h3>
+                <p style="color: #94a3b8; font-size: 0.9rem;">By William Shotts</p>
+                <p style="margin: 20px 0; color: #cbd5e1;">A complete introduction to the command line for beginners.</p>
+                <h4 style="color: #fca311; font-size: 1.5rem;">$39.99</h4>
+                <button style="margin-top: 15px; width: 100%; padding: 12px; background: #fca311; border: none; border-radius: 10px; font-weight: bold; cursor: pointer;">Buy Now</button>
             </div>
+
+            <div style="background: #1e293b; padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;">
+                <h3 style="color: white; font-size: 1.4rem;">How Linux Works</h3>
+                <p style="color: #94a3b8; font-size: 0.9rem;">By Brian Ward</p>
+                <p style="margin: 20px 0; color: #cbd5e1;">What every superuser should know about the OS logic.</p>
+                <h4 style="color: #fca311; font-size: 1.5rem;">$44.95</h4>
+                <button style="margin-top: 15px; width: 100%; padding: 12px; background: #fca311; border: none; border-radius: 10px; font-weight: bold; cursor: pointer;">Buy Now</button>
+            </div>
+
+            <div style="background: #1e293b; padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;">
+                <h3 style="color: white; font-size: 1.4rem;">UNIX & Linux Admin Handbook</h3>
+                <p style="color: #94a3b8; font-size: 0.9rem;">By Evi Nemeth</p>
+                <p style="margin: 20px 0; color: #cbd5e1;">The definitive guide to system administration.</p>
+                <h4 style="color: #fca311; font-size: 1.5rem;">$52.00</h4>
+                <button style="margin-top: 15px; width: 100%; padding: 12px; background: #fca311; border: none; border-radius: 10px; font-weight: bold; cursor: pointer;">Buy Now</button>
+            </div>
+
+        </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 ChapterHub. Designed with ❤️ by Group 05.</p>
+    <footer style="text-align: center; padding: 50px; color: #64748b; background: #0f172a;">
+        &copy; 2026 ChapterHub. All rights reserved.
     </footer>
 
-    <script>
-        // පොත් 5 ක ලැයිස්තුව
-        const books = [
-            { title: "The Linux Command Line", author: "William Shotts", price: "$39.99", desc: "A complete introduction to the command line for beginners." },
-            { title: "How Linux Works", author: "Brian Ward", price: "$44.95", desc: "What every superuser should know about the OS logic." },
-            { title: "UNIX & Linux Admin Handbook", author: "Evi Nemeth", price: "$59.99", desc: "The definitive guide to system administration." },
-            { title: "Linux Bible", author: "Christopher Negus", price: "$49.99", desc: "The comprehensive tutorial and reference for Linux." },
-            { title: "Violent Python", author: "TJ O'Connor", price: "$34.99", desc: "A cookbook for hackers and forensic analysts." }
-        ];
-
-        function displayBooks() {
-            const urlParams = new URLSearchParams(window.location.search);
-            // Home page එකේ ඉදන් එන search අකුරු ගන්නවා
-            const searchQuery = urlParams.get('search')?.toLowerCase() || "";
-            const displayArea = document.getElementById('book-display');
-            
-            // සෙවූ අකුරු වලට ගැලපෙන පොත් පෙරීම (Filtering)
-            const filtered = books.filter(b => 
-                b.title.toLowerCase().includes(searchQuery) || 
-                b.author.toLowerCase().includes(searchQuery)
-            );
-
-            // පොත් හමු වුණොත් ඒවා පෙන්වන්න
-            if (filtered.length > 0) {
-                displayArea.innerHTML = filtered.map(book => `
-                    <div class="book-card">
-                        <h3>${book.title}</h3>
-                        <p class="author">By ${book.author}</p>
-                        <p class="desc">${book.desc}</p>
-                        <div class="price">${book.price}</div>
-                        <button class="btn">Buy Now</button>
-                    </div>
-                `).join('');
-            } 
-            // කිසිදු පොතක් හමු නොවූයේ නම් පෙන්වන පණිවිඩය
-            else {
-                displayArea.innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #ffcc00; background: #1a2238; border-radius: 15px; border: 1px dashed orange;">
-                        <i class="fas fa-search-minus" style="font-size: 40px; margin-bottom: 15px;"></i>
-                        <h2 style="font-size: 22px;">Oops! No matching books found.</h2>
-                        <p style="color: #fff; margin: 10px 0;">We couldn't find anything for "<strong>${searchQuery}</strong>".</p>
-                        <button onclick="window.location.href='books.html'" style="background: orange; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px;">Show All Books</button>
-                    </div>
-                `;
-            }
-        }
-
-        // පිටුව Load වූ විගස Function එක ක්‍රියාත්මක කරන්න
-        window.onload = displayBooks;
-    </script>
 </body>
 </html>
+
