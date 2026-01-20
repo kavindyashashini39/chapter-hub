@@ -3,58 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChapterHub - Sign Up</title>
+    <title>ChapterHub - Create Account</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body style="background-color: #0f172a; margin: 0; font-family: 'Poppins', sans-serif;">
+<body style="background-color: #0f172a; margin: 0; font-family: sans-serif;">
 
     <nav>
-        <div class="logo">ChapterHub</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="books.html">Books</a></li>
-            <li><a href="login.html" class="cta-button">Login / Sign Up</a></li>
-        </ul>
+        <div class="logo" style="font-size: 1.8rem; font-weight: bold; color: #fca311; padding: 15px 8%;">ChapterHub</div>
+        <div style="position: absolute; right: 8%; top: 25px;">
+            <a href="index.html" style="color: white; text-decoration: none; margin-right: 20px;">Home</a>
+            <a href="books.html" style="color: white; text-decoration: none; margin-right: 20px;">Books</a>
+            <a href="login.html" style="border: 2px solid #fca311; padding: 8px 15px; border-radius: 10px; color: #fca311; text-decoration: none;">Login / Sign Up</a>
+        </div>
     </nav>
 
-    <div class="login-banner"></div>
+    <div style="width: 100%; height: 120px; background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000'); background-size: cover; border-bottom: 3px solid #fca311;"></div>
 
-    <div class="login-container">
-        <div class="login-card">
-            <h2>Create Account</h2>
-            <p>Join ChapterHub today!</p>
-            
-            <form id="signupForm">
-                <input type="text" id="newName" placeholder="Full Name" required>
-                <input type="email" id="newEmail" placeholder="Email Address" required>
-                <input type="password" id="newPass" placeholder="Password" required>
-                <input type="password" id="confirmPass" placeholder="Confirm Password" required>
+    <div style="display: flex; justify-content: center; align-items: center; padding: 40px 20px;">
+        <div style="background: #1e293b; padding: 40px; border-radius: 25px; width: 100%; max-width: 400px; text-align: center; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+            <h2 style="color: #fca311; margin-bottom: 10px;">Create Account</h2>
+            <p style="color: #94a3b8; margin-bottom: 25px;">Enter your details to join us</p>
+
+            <form>
+                <input type="text" placeholder="Full Name" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #475569; background: #0f172a; color: white; outline: none; box-sizing: border-box;">
                 
-                <p id="error-msg" style="color: #ff4d4d; font-size: 0.8rem; margin-bottom: 15px; display: none;">
-                    Passwords do not match!
-                </p>
-
-                <button type="submit" class="login-btn">Sign Up</button>
+                <input type="email" placeholder="Email Address" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #475569; background: #0f172a; color: white; outline: none; box-sizing: border-box;">
+                
+                <input type="password" placeholder="Password" required style="width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #475569; background: #0f172a; color: white; outline: none; box-sizing: border-box;">
+                
+                <input type="password" placeholder="Confirm Password" required style="width: 100%; padding: 12px; margin-bottom: 20px; border-radius: 10px; border: 1px solid #475569; background: #0f172a; color: white; outline: none; box-sizing: border-box;">
+                
+                <button type="submit" style="width: 100%; padding: 12px; background: #fca311; border: none; border-radius: 10px; font-weight: bold; font-size: 1rem; cursor: pointer; color: #0f172a;">Sign Up</button>
             </form>
-            
-            <p class="new-user">Already have an account? <a href="login.html">Login</a></p>
+
+            <p style="margin-top: 20px; font-size: 0.9rem; color: #94a3b8;">
+                Already have an account? <a href="login.html" style="color: #fca311; text-decoration: none;">Log In</a>
+            </p>
         </div>
     </div>
 
-    <script>
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-            const p1 = document.getElementById('newPass').value;
-            const p2 = document.getElementById('confirmPass').value;
-            const err = document.getElementById('error-msg');
-
-            if (p1 !== p2) {
-                e.preventDefault(); // Form එක යවන එක නවත්තනවා
-                err.style.display = "block";
-            } else {
-                alert("Account Created Successfully!");
-            }
-        });
-    </script>
 </body>
 </html>
