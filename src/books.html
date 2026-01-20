@@ -76,7 +76,8 @@
             displayArea.innerHTML = books.map(book => `
                 <div class="book-card">
                     <div class="book-cover-wrapper">
-                        <img src="${book.image}" alt="${book.title}" class="book-cover" onerror="this.src='https://via.placeholder.com/200x250?text=Book+Cover'">
+                        <img src="${book.image}" alt="${book.title}" class="book-cover" 
+                             onerror="this.src='https://via.placeholder.com/200x250?text=Cover+Not+Found'">
                     </div>
                     <h3>${book.title}</h3>
                     <p class="author">By ${book.author}</p>
