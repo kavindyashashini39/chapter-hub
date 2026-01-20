@@ -5,7 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChapterHub - Home</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Home Page Background Image */
+        header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                              url('https://images.unsplash.com/photo-1507842217153-e52fbc0d0b62?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Navigation Button Styling - මෙහිද ඇතුළත් කර ඇත */
+        nav ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        .cta-button {
+            border: 2px solid #fca311;
+            padding: 8px 20px;
+            border-radius: 8px;
+            color: #fca311 !important;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #fca311;
+            color: #14213d !important; /* පසුබිම තැඹිලි වූ විට අකුරු තද නිල් පැහැ වේ */
+            box-shadow: 0 0 10px rgba(252, 163, 17, 0.5);
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -17,61 +54,32 @@
         </ul>
     </nav>
 
-    <header class="hero-section">
-        <div class="hero-content">
-            <h1>Unlock Your Next Adventure</h1>
-            <p>The world's most immersive online book platform.</p>
-            
-            <div class="search-wrapper">
-                <input type="text" id="home-search" placeholder="Search for books, authors or genres...">
-                <button type="button" onclick="searchNow()">
-                    <i class="fas fa-search"></i> Search
-                </button>
-            </div>
-
-            <a href="books.html" class="primary-btn">Explore Library</a>
-        </div>
+    <header>
+        <h1>Unlock Your Next Adventure</h1>
+        <p>The world's most immersive online book platform.</p>
+        <a href="books.html" class="btn">Explore Library</a>
     </header>
 
-    <section class="container">
-        <h2 class="section-title">Why Choose Us?</h2>
-        <div class="features-row">
-            <div class="feature-card">
-                <i class="fas fa-book-open"></i>
+    <div class="container">
+        <h2 style="color: #fca311; text-align: center;">Why Choose Us?</h2>
+        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px; flex-wrap: wrap;">
+            <div style="background: #16213e; padding: 30px; border-radius: 12px; width: 300px; text-align: center; border-bottom: 4px solid #fca311;">
                 <h3>Huge Collection</h3>
-                <p>Access thousands of books instantly from anywhere in the world.</p>
+                <p>Access thousands of books instantly.</p>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-users"></i>
+            <div style="background: #16213e; padding: 30px; border-radius: 12px; width: 300px; text-align: center; border-bottom: 4px solid #fca311;">
                 <h3>Community</h3>
-                <p>Join millions of readers and share your thoughts on your favorite titles.</p>
+                <p>Join millions of readers worldwide.</p>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-award"></i>
+            <div style="background: #16213e; padding: 30px; border-radius: 12px; width: 300px; text-align: center; border-bottom: 4px solid #fca311;">
                 <h3>Premium Quality</h3>
-                <p>Curated high-quality content designed just for your reading pleasure.</p>
+                <p>Curated content just for you.</p>
             </div>
         </div>
-    </section>
+    </div>
 
     <footer>
         <p>&copy; 2026 ChapterHub. Designed with ❤️ by Group 05.</p>
     </footer>
-
-    <script>
-        function searchNow() {
-            const query = document.getElementById('home-search').value.trim();
-            if(query) {
-                window.location.href = `books.html?search=${encodeURIComponent(query)}`;
-            } else {
-                window.location.href = `books.html`;
-            }
-        }
-
-        // Enter key එක එබූ විට සෙවුම ක්‍රියාත්මක වීමට
-        document.getElementById('home-search').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') searchNow();
-        });
-    </script>
 </body>
 </html>
