@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChapterHub - Our Books</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -33,7 +33,6 @@
     </footer>
 
     <script>
-        // පොත් ලැයිස්තුවට පින්තූර ලින්ක් ඇතුළත් කර ඇත
         const books = [
             { 
                 title: "The Linux Command Line", 
@@ -86,8 +85,7 @@
                 displayArea.innerHTML = filtered.map(book => `
                     <div class="book-card">
                         <div class="book-cover-wrapper">
-                            <img src="${book.image}" alt="${book.title}" class="book-cover" 
-                                 onerror="this.src='https://via.placeholder.com/200x250?text=No+Image'">
+                            <img src="${book.image}" alt="${book.title}" class="book-cover">
                         </div>
                         <h3>${book.title}</h3>
                         <p class="author">By ${book.author}</p>
@@ -97,13 +95,7 @@
                     </div>
                 `).join('');
             } else {
-                displayArea.innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #fca311;">
-                        <i class="fas fa-search-minus" style="font-size: 50px; margin-bottom: 20px;"></i>
-                        <h2>Oops! No books found.</h2>
-                        <button onclick="window.location.href='books.html'" class="btn" style="margin-top: 20px;">Show All Books</button>
-                    </div>
-                `;
+                displayArea.innerHTML = "<p>No books found.</p>";
             }
         }
 
