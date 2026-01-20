@@ -9,13 +9,14 @@ nav ul { display: flex; list-style: none; gap: 25px; }
 nav ul li a { color: #fff; text-decoration: none; font-weight: 500; }
 .cta-button { border: 2px solid #fca311; padding: 6px 15px; border-radius: 8px; color: #fca311 !important; }
 
-/* Home Page Hero Section */
+/* Home Page Hero Section - Updated with dynamic background */
 .hero-section {
-    height: 70vh;
-    background: linear-gradient(rgba(15,23,42,0.7), rgba(15,23,42,0.7)), 
-                url('https://images.unsplash.com/photo-1507842217153-e52fbc0d0b62?auto=format&fit=crop&w=1500&q=80');
+    height: 80vh; /* උස මදක් වැඩි කර ඇත */
+    background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
+                url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1500&q=80');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; /* Scroll කරන විට ලස්සන cinematic effect එකක් ලබා දෙයි */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,26 +25,39 @@ nav ul li a { color: #fff; text-decoration: none; font-weight: 500; }
     padding: 0 20px;
 }
 
-.hero-section h1 { font-size: 3.5rem; margin-bottom: 10px; }
+.hero-section h1 { 
+    font-size: 3.5rem; 
+    margin-bottom: 10px; 
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* අකුරු කැපී පෙනීමට */
+}
 
-/* Home Search Box */
+/* Home Search Box - Modern Glassmorphism Style */
 .search-box-container {
-    background: #fff;
-    padding: 5px;
+    background: rgba(255, 255, 255, 0.15); /* වීදුරුවක් වැනි පෙනුමක් */
+    backdrop-filter: blur(10px); /* පසුබිම බොඳ කිරීම */
+    padding: 8px;
     border-radius: 50px;
     display: flex;
     width: 100%;
     max-width: 600px;
     margin: 30px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .search-box-container input {
     flex: 1;
     border: none;
     padding: 12px 25px;
     border-radius: 50px;
     outline: none;
-    color: #333;
+    color: #fff; /* අකුරු සුදු පාට */
+    background: transparent; /* input එක ඇතුල පේන විදියට */
 }
+
+.search-box-container input::placeholder {
+    color: #cbd5e1; /* placeholder එක ලස්සන පැහැයකට */
+}
+
 .search-box-container button {
     background: #fca311;
     border: none;
@@ -51,20 +65,27 @@ nav ul li a { color: #fff; text-decoration: none; font-weight: 500; }
     border-radius: 50px;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-.explore-btn { background: #fca311; color: #000; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; }
+.search-box-container button:hover {
+    background: #ffb740;
+    transform: scale(1.05);
+}
+
+.explore-btn { background: #fca311; color: #000; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+.explore-btn:hover { background: #ffb740; }
 
 /* Section Title & Container */
 .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
 .section-title { text-align: center; color: #fca311; margin-bottom: 40px; font-size: 2.2rem; }
 
-/* Features & Book Grid - Centering */
+/* Features & Book Grid */
 .features-grid, .book-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
-    justify-content: center; /* සියල්ල මැදට ගනී */
+    justify-content: center;
 }
 
 /* Feature & Book Cards */
@@ -77,17 +98,22 @@ nav ul li a { color: #fff; text-decoration: none; font-weight: 500; }
     border-bottom: 5px solid #fca311;
     transition: 0.3s;
 }
-.book-card:hover { transform: translateY(-10px); }
+.book-card:hover, .feature-card:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
 
 /* Books Page Header */
-.library-header { text-align: center; padding: 60px 20px; background: #0f172a; }
+.library-header { text-align: center; padding: 80px 20px; background: #0f172a; }
 .library-header h1 { font-size: 3rem; margin-bottom: 15px; }
 .library-header p { max-width: 750px; margin: 0 auto; color: #94a3b8; }
 
 .price { font-size: 1.5rem; color: #fca311; font-weight: bold; margin: 15px 0; }
-.btn { background: #fca311; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; }
+.btn { background: #fca311; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+.btn:hover { background: #ffb740; }
 
 footer { text-align: center; padding: 40px; background: #1e293b; margin-top: 50px; }
+
 /* --- Authentication Page Styles --- */
 .auth-page-bg {
     background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), 
