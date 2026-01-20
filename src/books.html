@@ -16,8 +16,9 @@
         </ul>
     </nav>
 
-    <div class="library-header" style="text-align: center; padding: 50px;">
-        <h1 style="font-size: 3rem; color: #fca311;">Our Library</h1>
+    <div class="library-header">
+        <h1>Our Library</h1>
+        <p>Explore our premium collection of technical books.</p>
     </div>
 
     <div class="container">
@@ -40,7 +41,7 @@
         displayArea.innerHTML = books.map(book => `
             <div class="book-card">
                 <div class="book-cover-wrapper">
-                    <img src="${book.image}" alt="${book.title}" class="book-cover">
+                    <img src="${book.image}" alt="${book.title}" class="book-cover" onerror="this.src='https://via.placeholder.com/200x300?text=No+Cover'">
                 </div>
                 <h3>${book.title}</h3>
                 <p class="author">By ${book.author}</p>
