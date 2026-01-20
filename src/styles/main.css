@@ -9,7 +9,6 @@
 body {
     background-color: #0f172a;
     color: #e2e8f0;
-    line-height: 1.6;
 }
 
 /* Navigation */
@@ -21,44 +20,27 @@ nav {
     background-color: #1e293b;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fca311;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    align-items: center;
-}
-
-nav ul li a {
-    color: #e2e8f0;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
+.logo { font-size: 1.5rem; font-weight: bold; color: #fca311; }
+nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
+nav ul li a { color: #fff; text-decoration: none; transition: 0.3s; }
 nav ul li a:hover { color: #fca311; }
 
 .cta-button {
     border: 2px solid #fca311;
-    padding: 8px 20px;
+    padding: 8px 18px;
     border-radius: 8px;
     color: #fca311 !important;
     font-weight: bold;
-    text-decoration: none;
 }
 
-/* Header & Search */
-header {
-    height: 70vh;
-    background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
-                      url('https://images.unsplash.com/photo-1507842217153-e52fbc0d0b62?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+/* Library Page Header */
+.library-header {
+    height: 300px;
+    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1500&q=80');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -69,83 +51,81 @@ header {
     padding: 20px;
 }
 
-.search-container {
-    display: flex;
-    background: #fff;
-    padding: 5px;
-    border-radius: 50px;
-    width: 100%;
-    max-width: 550px;
-    margin: 25px 0;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
+.library-header h1 { font-size: 2.5rem; color: #fff; margin-bottom: 10px; }
 
-.search-container input {
-    flex: 1;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 50px;
-    outline: none;
-    color: #333;
-}
-
-.search-container button {
-    background: #fca311;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #fca311;
-    color: #000;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-/* Features Grid - මෙතැනින් තමයි හරස් අතට හැදෙන්නේ */
+/* Book Grid Layout */
 .container {
     max-width: 1200px;
-    margin: 60px auto;
+    margin: 40px auto;
     padding: 0 20px;
 }
 
-.features-grid {
-    display: flex;         /* කොටු හරස් අතට ගැනීමට */
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;       /* Mobile වලදී එකක් යට එකක් යාමට */
+.section-title {
+    text-align: center;
+    color: #fca311;
+    margin-bottom: 40px;
+    font-size: 2rem;
 }
 
-.feature-card {
+.book-grid {
+    display: grid;
+    /* පේළියකට පොත් 3ක් හෝ 4ක් සිටින සේ සකසයි */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Book Card Styling */
+.book-card {
     background: #1e293b;
-    padding: 35px;
     border-radius: 15px;
-    width: 320px;
-    text-align: center;
-    border-bottom: 5px solid #fca311;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+    border-color: #fca311;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.book-card h3 { color: #fff; margin-bottom: 10px; font-size: 1.3rem; }
+.book-card .author { color: #fca311; font-weight: 500; margin-bottom: 10px; }
+.book-card .desc { font-size: 0.9rem; color: #94a3b8; margin-bottom: 20px; }
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.price { font-size: 1.5rem; font-weight: bold; color: #fff; }
+
+.btn-buy {
+    background: #fca311;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
     transition: 0.3s;
 }
 
-.feature-card:hover { transform: translateY(-10px); }
+.btn-buy:hover { background: #e59400; transform: scale(1.05); }
 
 footer {
-    background: #1e293b;
     text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-    color: #94a3b8;
+    padding: 40px;
+    background: #1e293b;
+    margin-top: 60px;
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .features-grid { flex-direction: column; align-items: center; }
+    .book-grid { grid-template-columns: 1fr; }
 }
