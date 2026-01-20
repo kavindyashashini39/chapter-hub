@@ -9,50 +9,54 @@
 </head>
 <body style="background-color: #0f172a; margin: 0; font-family: 'Poppins', sans-serif;">
 
-    <nav>
-        <div class="logo">ChapterHub</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="books.html">Books</a></li>
-            <li><a href="login.html" class="cta-button">Login / Sign Up</a></li>
-        </ul>
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #1e293b; position: sticky; top: 0; z-index: 1000;">
+        <div class="logo" style="font-size: 1.8rem; font-weight: bold; color: #fca311;">ChapterHub</div>
+        <div style="display: flex; gap: 30px; align-items: center;">
+            <a href="index.html" style="color: white; text-decoration: none; font-weight: 500;">Home</a>
+            <a href="books.html" style="color: white; text-decoration: none; font-weight: 500;">Books</a>
+            <a href="login.html" style="border: 2px solid #fca311; padding: 8px 20px; border-radius: 10px; color: #fca311; text-decoration: none; font-weight: bold;">Login / Sign Up</a>
+        </div>
     </nav>
 
-    <div class="login-banner"></div>
+    <div style="width: 100%; height: 120px; background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000'); background-size: cover; background-position: center; border-bottom: 3px solid #fca311;"></div>
 
-    <div class="login-container">
-        <div class="login-card">
-            <h2>Welcome Back</h2>
-            <p>Please enter your details</p>
-            
-            <p id="error-message" style="color: #ff4d4d; background: rgba(255, 77, 77, 0.1); padding: 10px; border-radius: 8px; margin-bottom: 20px; display: none; font-size: 0.9rem;">
-                <i class="fa-solid fa-circle-exclamation"></i> Invalid username or password!
-            </p>
+    <div style="display: flex; justify-content: center; align-items: center; padding: 60px 20px;">
+        <div style="background: #1e293b; padding: 40px; border-radius: 25px; width: 100%; max-width: 400px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);">
+            <h2 style="color: #fca311; margin-bottom: 10px; font-size: 2rem;">Welcome Back</h2>
+            <p style="color: #94a3b8; margin-bottom: 30px;">Please enter your details</p>
 
             <form id="loginForm">
-                <input type="text" id="username" placeholder="Username" required>
-                <input type="password" id="password" placeholder="Password" required>
-                <button type="submit" class="login-btn">Log In</button>
+                <input type="text" id="username" placeholder="Username" required style="width: 100%; padding: 14px; margin-bottom: 15px; border-radius: 12px; border: 1px solid #334155; background: #0f172a; color: white; outline: none; box-sizing: border-box;">
+                
+                <input type="password" id="password" placeholder="Password" required style="width: 100%; padding: 14px; margin-bottom: 20px; border-radius: 12px; border: 1px solid #334155; background: #0f172a; color: white; outline: none; box-sizing: border-box;">
+                
+                <button type="submit" style="width: 100%; padding: 14px; background: #fca311; border: none; border-radius: 12px; font-weight: bold; font-size: 1rem; cursor: pointer; color: #0f172a; transition: 0.3s;">Log In</button>
             </form>
-            <p class="new-user">New here? <a href="#">signup.html</a></p>
+
+            <p style="margin-top: 25px; font-size: 0.95rem; color: #94a3b8;">
+                New here? <a href="signup.html" style="color: #fca311; text-decoration: none; font-weight: bold;">Create Account</a>
+            </p>
         </div>
     </div>
+
+    <footer style="text-align: center; padding: 40px; color: #64748b; font-size: 0.9rem;">
+        &copy; 2026 ChapterHub. All rights reserved.
+    </footer>
 
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const user = document.getElementById('username').value;
             const pass = document.getElementById('password').value;
-            const errorMsg = document.getElementById('error-message');
 
+            // Sample Admin Login
             if (user === "admin" && pass === "1234") {
                 window.location.href = "index.html";
             } else {
-                errorMsg.style.display = "block";
-                document.getElementById('username').style.borderColor = "#ff4d4d";
-                document.getElementById('password').style.borderColor = "#ff4d4d";
+                alert("Invalid username or password!");
             }
         });
     </script>
+
 </body>
 </html>
