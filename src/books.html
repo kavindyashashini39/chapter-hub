@@ -18,7 +18,7 @@
 
     <div class="library-header">
         <h1>Our Library</h1>
-        <p>Explore our premium collection of technical books.</p>
+        <p>Master the world of Linux and DevOps with our curated collection.</p>
     </div>
 
     <div class="container">
@@ -32,19 +32,34 @@
 
     <script>
         const books = [
-            { title: "The Linux Command Line", author: "William Shotts", price: "$39.99", desc: "A complete introduction to the command line.", image: "https://m.media-amazon.com/images/I/7106v9S9pTL._AC_UF1000,1000_QL80_.jpg" },
-            { title: "How Linux Works", author: "Brian Ward", price: "$44.95", desc: "What every superuser should know.", image: "https://m.media-amazon.com/images/I/817EAnB-vBL._AC_UF1000,1000_QL80_.jpg" },
-            { title: "UNIX & Linux Admin Handbook", author: "Evi Nemeth", price: "$59.99", desc: "The definitive guide to administration.", image: "https://m.media-amazon.com/images/I/91N9+U7y9OL._AC_UF1000,1000_QL80_.jpg" }
+            { 
+                title: "The Linux Command Line", 
+                author: "William Shotts", 
+                price: "$39.99", 
+                image: "https://m.media-amazon.com/images/I/7106v9S9pTL._AC_UF1000,1000_QL80_.jpg" 
+            },
+            { 
+                title: "How Linux Works", 
+                author: "Brian Ward", 
+                price: "$44.95", 
+                image: "https://m.media-amazon.com/images/I/817EAnB-vBL._AC_UF1000,1000_QL80_.jpg"
+            },
+            { 
+                title: "UNIX & Linux Admin Handbook", 
+                author: "Evi Nemeth", 
+                price: "$59.99", 
+                image: "https://m.media-amazon.com/images/I/91N9+U7y9OL._AC_UF1000,1000_QL80_.jpg"
+            }
         ];
 
         const displayArea = document.getElementById('book-display');
         displayArea.innerHTML = books.map(book => `
             <div class="book-card">
                 <div class="book-cover-wrapper">
-                    <img src="${book.image}" alt="${book.title}" class="book-cover" onerror="this.src='https://via.placeholder.com/200x300?text=No+Cover'">
+                    <img src="${book.image}" alt="${book.title}" class="book-cover" onerror="this.src='https://via.placeholder.com/200x250?text=No+Image'">
                 </div>
                 <h3>${book.title}</h3>
-                <p class="author">By ${book.author}</p>
+                <p style="color: #94a3b8; margin: 10px 0;">By ${book.author}</p>
                 <div class="price">${book.price}</div>
                 <button class="btn">Buy Now</button>
             </div>
