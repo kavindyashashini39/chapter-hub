@@ -17,18 +17,16 @@
         </ul>
     </nav>
 
-    <header>
+    <header class="hero-section">
         <h1>Unlock Your Next Adventure</h1>
         <p>The world's most immersive online book platform.</p>
         
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search for books, authors or genres...">
-            <button type="button" id="search-button">
-                <i class="fas fa-search"></i> Search
-            </button>
+        <div class="search-box-container">
+            <input type="text" id="home-search" placeholder="Search for books, authors or genres...">
+            <button type="button" onclick="goToBooks()">Search</button>
         </div>
 
-        <a href="books.html" class="btn">Explore Library</a>
+        <a href="books.html" class="explore-btn">Explore Library</a>
     </header>
 
     <div class="container">
@@ -54,19 +52,14 @@
     </footer>
 
     <script>
-        document.getElementById('search-button').addEventListener('click', function() {
-            const query = document.getElementById('search-input').value.trim();
-            if (query) {
-                window.location.href = `books.html?search=${encodeURIComponent(query)}`;
+        function goToBooks() {
+            const val = document.getElementById('home-search').value.trim();
+            if(val) {
+                window.location.href = `books.html?search=${encodeURIComponent(val)}`;
+            } else {
+                window.location.href = `books.html`;
             }
-        });
-
-        document.getElementById('search-input').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                const query = e.target.value.trim();
-                if (query) window.location.href = `books.html?search=${encodeURIComponent(query)}`;
-            }
-        });
+        }
     </script>
 </body>
 </html>
