@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Modern Modal Design */
+        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -19,7 +19,6 @@
             background-color: rgba(15, 23, 42, 0.9);
             backdrop-filter: blur(8px);
         }
-
         .modal-content {
             background-color: #1e293b;
             margin: 5% auto;
@@ -28,21 +27,8 @@
             width: 90%;
             max-width: 450px;
             border-radius: 25px;
-            position: relative;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
             text-align: center;
         }
-
-        .modal-header i {
-            font-size: 3rem;
-            color: #fca311;
-            margin-bottom: 15px;
-        }
-
-        .modal-content h2 { color: #fca311; margin-bottom: 5px; }
-        .modal-content p { color: #94a3b8; margin-bottom: 20px; }
-
-        /* Input Fields in Modal */
         .modal-input {
             width: 100%;
             padding: 12px;
@@ -53,9 +39,6 @@
             color: white;
             outline: none;
         }
-
-        .modal-input:focus { border-color: #fca311; }
-
         .confirm-btn {
             width: 100%;
             padding: 14px;
@@ -63,21 +46,16 @@
             border: none;
             border-radius: 12px;
             font-weight: bold;
-            font-size: 1rem;
             cursor: pointer;
-            transition: 0.3s;
-            margin-top: 10px;
         }
-
-        .confirm-btn:hover { background: #ffb740; transform: scale(1.02); }
-
-        .cancel-link {
-            display: block;
-            margin-top: 15px;
-            color: #64748b;
-            text-decoration: none;
-            font-size: 0.9rem;
-            cursor: pointer;
+        /* Error Message Style */
+        .error-box {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 50px;
+            border: 2px dashed #fca311;
+            border-radius: 20px;
+            background: rgba(252, 163, 17, 0.05);
         }
     </style>
 </head>
@@ -86,11 +64,16 @@
     <nav style="display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #1e293b; position: sticky; top: 0; z-index: 1000;">
         <div class="logo" style="font-size: 1.8rem; font-weight: bold; color: #fca311;">ChapterHub</div>
         <div style="display: flex; gap: 30px; align-items: center;">
-            <a href="index.html" style="color: white; text-decoration: none; font-weight: 500;">Home</a>
-            <a href="books.html" style="color: white; text-decoration: none; font-weight: 500;">Books</a>
-            <a href="login.html" style="border: 2px solid #fca311; padding: 8px 20px; border-radius: 10px; color: #fca311; text-decoration: none; font-weight: bold;">Login / Sign Up</a>
+            <a href="index.html" style="color: white; text-decoration: none;">Home</a>
+            <a href="books.html" style="color: white; text-decoration: none;">Books</a>
+            <a href="login.html" style="border: 2px solid #fca311; padding: 8px 20px; border-radius: 10px; color: #fca311; text-decoration: none;">Login / Sign Up</a>
         </div>
     </nav>
+
+    <div style="width: 100%; padding: 80px 20px; text-align: center; background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2000'); background-size: cover; border-bottom: 3px solid #fca311;">
+        <h1 style="font-size: 3rem; margin: 0;">Our Library</h1>
+        <p id="search-indicator" style="color: #fca311; margin-top: 10px;">Master your skills with our curated collection.</p>
+    </div>
 
     <div style="padding: 60px 8%;">
         <div id="book-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
@@ -99,21 +82,14 @@
 
     <div id="purchaseModal" class="modal">
         <div class="modal-content">
-            <div class="modal-header">
-                <i class="fas fa-shopping-cart"></i>
-            </div>
-            <h2 id="modalBookTitle">Complete Order</h2>
-            <p id="modalBookPrice" style="font-weight: bold; color: #fca311; font-size: 1.2rem;"></p>
-            
-            <form id="orderForm" onsubmit="handleOrder(event)">
+            <h2 id="modalBookTitle" style="color: #fca311;"></h2>
+            <p id="modalBookPrice" style="margin-bottom: 20px;"></p>
+            <form onsubmit="event.preventDefault(); alert('Order Placed!'); closeModal();">
                 <input type="text" placeholder="Full Name" class="modal-input" required>
                 <input type="email" placeholder="Email Address" class="modal-input" required>
-                <input type="text" placeholder="Shipping Address (Optional for E-books)" class="modal-input">
-                
                 <button type="submit" class="confirm-btn">Confirm Purchase</button>
             </form>
-            
-            <a class="cancel-link" onclick="closeModal()">Cancel and go back</a>
+            <p onclick="closeModal()" style="margin-top:15px; cursor:pointer; color:#64748b;">Cancel</p>
         </div>
     </div>
 
@@ -126,8 +102,48 @@
             { title: "Clean Code", author: "Robert C. Martin", desc: "A handbook of agile craftsmanship.", price: "$35.50" }
         ];
 
-        // Buy Now Button Function
-        function openPurchaseModal(title, price) {
+        function initLibrary() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchQuery = urlParams.get('search')?.toLowerCase().trim() || "";
+            const grid = document.getElementById('book-grid');
+            const indicator = document.getElementById('search-indicator');
+
+            // Filtering logic
+            let displayList = allBooks;
+            if (searchQuery) {
+                displayList = allBooks.filter(book => 
+                    book.title.toLowerCase().includes(searchQuery) || 
+                    book.author.toLowerCase().includes(searchQuery)
+                );
+                indicator.innerText = `Search results for: "${searchQuery}"`;
+            }
+
+            grid.innerHTML = "";
+
+            if (displayList.length > 0) {
+                displayList.forEach(book => {
+                    grid.innerHTML += `
+                        <div style="background: #1e293b; padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); text-align: center;">
+                            <h3 style="color: white; height: 50px;">${book.title}</h3>
+                            <p style="color: #94a3b8; font-size: 0.8rem;">By ${book.author}</p>
+                            <p style="margin: 15px 0; color: #cbd5e1; font-size: 0.9rem;">${book.desc}</p>
+                            <h4 style="color: #fca311; font-size: 1.4rem;">${book.price}</h4>
+                            <button onclick="openModal('${book.title}', '${book.price}')" style="width: 100%; padding: 12px; background: #fca311; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 10px;">Buy Now</button>
+                        </div>
+                    `;
+                });
+            } else {
+                grid.innerHTML = `
+                    <div class="error-box">
+                        <i class="fas fa-search" style="font-size: 3rem; color: #fca311; margin-bottom: 20px;"></i>
+                        <h2>Oops! Book Not Found</h2>
+                        <p style="color: #94a3b8;">We couldn't find any books matching "${searchQuery}".</p>
+                        <button onclick="window.location.href='books.html'" style="margin-top: 20px; padding: 10px 25px; background: #fca311; border: none; border-radius: 10px; font-weight: bold; cursor: pointer;">View All Books</button>
+                    </div>`;
+            }
+        }
+
+        function openModal(title, price) {
             document.getElementById('modalBookTitle').innerText = title;
             document.getElementById('modalBookPrice').innerText = price;
             document.getElementById('purchaseModal').style.display = "block";
@@ -137,31 +153,7 @@
             document.getElementById('purchaseModal').style.display = "none";
         }
 
-        // Order එක Confirm කළ පසු සිදුවන දේ
-        function handleOrder(event) {
-            event.preventDefault();
-            const title = document.getElementById('modalBookTitle').innerText;
-            alert(`Success! Your order for "${title}" has been placed. Check your email for details.`);
-            closeModal();
-        }
-
-        // Initial Load
-        function loadBooks() {
-            const grid = document.getElementById('book-grid');
-            allBooks.forEach(book => {
-                grid.innerHTML += `
-                    <div style="background: #1e293b; padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); text-align: center;">
-                        <h3 style="color: white; height: 50px;">${book.title}</h3>
-                        <p style="color: #94a3b8; font-size: 0.8rem;">By ${book.author}</p>
-                        <p style="margin: 15px 0; color: #cbd5e1; font-size: 0.9rem;">${book.desc}</p>
-                        <h4 style="color: #fca311; font-size: 1.4rem;">${book.price}</h4>
-                        <button onclick="openPurchaseModal('${book.title}', '${book.price}')" style="width: 100%; padding: 12px; background: #fca311; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 10px;">Buy Now</button>
-                    </div>
-                `;
-            });
-        }
-
-        window.onload = loadBooks;
+        window.onload = initLibrary;
     </script>
 </body>
 </html>
