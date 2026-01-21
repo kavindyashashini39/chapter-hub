@@ -1,13 +1,13 @@
 # ChapterHub - Best Book Store
-### Created by Group 05
+### Created by Group 03
 
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 ![Deployment Status](https://img.shields.io/badge/deployment-live-success)
 
 ## Group Information
-* **Student 1:** [ඔයාගේ නම] - [ID Number] - Role: DevOps Engineer
-* **Student 2:** [යාලුවා 1 ගේ නම] - [ID Number] - Role: Backend Developer
-* **Student 3:** [යාලුවා 2 ගේ නම] - [ID Number] - Role: Frontend Developer
+* **Student 1:** [N.A.A.SHASHINI KAWINDAYA WIJETHILAKA] - [ITBNM-2313-0039] - Role: DevOps Engineer
+* **Student 2:** [I.M.KALANI MEKALA] - [ITBNM-2313-0049] - Role: Backend Developer
+* **Student 3:** [B.A.KAWYA PARAMI BOGODA] - [ITBIN-2313-0016] - Role: Frontend Developer
 
 ## Project Description
 ChapterHub is a modern online book platform designed to showcase a curated collection of technical and fiction books. It serves as a portfolio demonstrating advanced Git workflows and DevOps practices.
