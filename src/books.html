@@ -6,6 +6,46 @@
     <title>ChapterHub - Library</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Success Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: #1e293b;
+            margin: 15% auto;
+            padding: 30px;
+            border: 2px solid #fca311;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            animation: slideDown 0.4s ease-out;
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .close-modal {
+            background: #fca311;
+            color: #000;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body style="background-color: #0f172a; margin: 0; font-family: 'Poppins', sans-serif; color: white;">
 
@@ -24,10 +64,18 @@
     </div>
 
     <div style="padding: 60px 8%;">
-        <h2 id="search-title" style="color: #94a3b8; font-weight: normal; margin-bottom: 30px; display: none;"></h2>
-        
+        <h2 id="search-info" style="color: #94a3b8; font-weight: normal; margin-bottom: 30px; display: none;"></h2>
         <div id="book-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
             </div>
+    </div>
+
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <i class="fas fa-check-circle" style="font-size: 3.5rem; color: #fca311; margin-bottom: 15px;"></i>
+            <h2 id="modalTitle">Added to Cart!</h2>
+            <p id="modalMessage" style="color: #cbd5e1; margin-top: 10px;"></p>
+            <button class="close-modal" onclick="closeModal()">Great!</button>
+        </div>
     </div>
 
     <footer style="text-align: center; padding: 40px; color: #64748b; font-size: 0.9rem;">
@@ -35,7 +83,7 @@
     </footer>
 
     <script>
-        // 1. දැනට ඔබ සතු පොත් ලැයිස්තුව (Array එකක් ලෙස)
+        // පොත් දත්ත (Data)
         const allBooks = [
             { title: "The Linux Command Line", author: "William Shotts", desc: "A complete introduction for beginners.", price: "$39.99" },
             { title: "How Linux Works", author: "Brian Ward", desc: "Deep dive into the OS internals.", price: "$44.95" },
@@ -44,53 +92,63 @@
             { title: "Clean Code", author: "Robert C. Martin", desc: "A handbook of agile craftsmanship.", price: "$35.50" }
         ];
 
+        // Buy Now Button එකේ වැඩසටහන
+        function buyNow(title, price) {
+            const modal = document.getElementById('purchaseModal');
+            document.getElementById('modalMessage').innerText = `You have selected "${title}" for ${price}. Proceeding to checkout...`;
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('purchaseModal').style.display = "none";
+        }
+
+        // Library එක load කරන function එක
         function initLibrary() {
             const urlParams = new URLSearchParams(window.location.search);
-            const searchQuery = urlParams.get('search')?.toLowerCase() || "";
+            const query = urlParams.get('search')?.toLowerCase() || "";
             const grid = document.getElementById('book-grid');
-            const titleElement = document.getElementById('search-title');
+            const info = document.getElementById('search-info');
 
-            // සෙවුම් පදය අනුව පොත් වෙන් කිරීම
-            const results = allBooks.filter(book => 
-                book.title.toLowerCase().includes(searchQuery) || 
-                book.author.toLowerCase().includes(searchQuery)
+            const filtered = allBooks.filter(b => 
+                b.title.toLowerCase().includes(query) || b.author.toLowerCase().includes(query)
             );
 
-            grid.innerHTML = ""; // Grid එක හිස් කිරීම
-
-            if (searchQuery) {
-                titleElement.style.display = "block";
-                titleElement.innerText = `Showing results for: "${searchQuery}"`;
+            grid.innerHTML = "";
+            if(query) {
+                info.style.display = "block";
+                info.innerText = `Showing results for: "${query}"`;
             }
 
-            if (results.length > 0) {
-                // පොත් තිබේ නම් ඒවා පෙන්වීම
-                results.forEach(book => {
+            if(filtered.length > 0) {
+                filtered.forEach(book => {
                     grid.innerHTML += `
-                        <div style="background: #1e293b; padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); text-align: center; transition: 0.3s;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div style="background: #1e293b; padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); text-align: center;">
                             <h3 style="color: white; height: 50px;">${book.title}</h3>
                             <p style="color: #94a3b8; font-size: 0.8rem;">By ${book.author}</p>
                             <p style="margin: 15px 0; color: #cbd5e1; font-size: 0.9rem;">${book.desc}</p>
                             <h4 style="color: #fca311; font-size: 1.4rem;">${book.price}</h4>
-                            <button style="width: 100%; padding: 12px; background: #fca311; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 10px;">Buy Now</button>
+                            <button onclick="buyNow('${book.title}', '${book.price}')" style="width: 100%; padding: 12px; background: #fca311; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 10px; transition: 0.3s;">Buy Now</button>
                         </div>
                     `;
                 });
             } else {
-                // පොත් නැතිවිට පෙන්වන Error පණිවිඩය
                 grid.innerHTML = `
-                    <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; border: 2px dashed #fca311; border-radius: 20px; background: rgba(252, 163, 17, 0.05);">
-                        <i class="fas fa-search" style="font-size: 3rem; color: #fca311; margin-bottom: 20px;"></i>
-                        <h2 style="color: white; margin-bottom: 10px;">Oops! Book Not Found</h2>
-                        <p style="color: #94a3b8;">We couldn't find any books matching "${searchQuery}". Please try another name.</p>
-                        <button onclick="window.location.href='books.html'" style="margin-top: 20px; padding: 10px 25px; background: #fca311; border: none; border-radius: 10px; font-weight: bold; cursor: pointer;">View All Books</button>
-                    </div>
-                `;
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 50px; border: 2px dashed #fca311; border-radius: 20px;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #fca311; margin-bottom: 20px;"></i>
+                        <h2>Oops! No books found.</h2>
+                        <p style="color: #94a3b8;">Try searching for something else like "Linux" or "Code".</p>
+                        <button onclick="window.location.href='books.html'" style="margin-top: 20px; padding: 10px 20px; background: #fca311; border: none; border-radius: 10px; font-weight: bold; cursor: pointer;">View All Books</button>
+                    </div>`;
             }
         }
 
-        // පිටුව සූදානම් වූ පසු ක්‍රියාත්මක කරන්න
         window.onload = initLibrary;
+        // Modal එකෙන් පිටත එබූ විට වසා දැමීම
+        window.onclick = function(event) {
+            const modal = document.getElementById('purchaseModal');
+            if (event.target == modal) modal.style.display = "none";
+        }
     </script>
 </body>
 </html>
