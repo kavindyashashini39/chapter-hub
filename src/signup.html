@@ -62,17 +62,17 @@
             const signupForm = document.getElementById('signupForm');
 
             if (pass !== confirm) {
-                // Password වැරදි නම්
+               
                 errorMsg.style.display = "block";
                 successMsg.style.display = "none";
                 document.getElementById('confirmPass').style.borderColor = "#ff4d4d";
             } else {
-                // ඔක්කොම හරි නම්
+            
                 errorMsg.style.display = "none";
                 successMsg.style.display = "block";
                 
-                // Form එක disable කිරීම
+              
                 signupForm.style.opacity = "0.4";
                 signupForm.style.pointerEvents = "none";
 
-                // තත්පර 2.5 කින් Login පේජ් එක
+               
