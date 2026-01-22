@@ -50,6 +50,6 @@ We implemented the Gitflow branching strategy:
 * Implemented responsive navigation
 
 ## Setup Instructions
-1.  Clone the repository: `git clone [REPO_URL]`
+1.  Clone the repository: `git clone [https://github.com/kavindyashashini39/chapter-hub.git]`
 2.  Navigate to folder: `cd chapter-hub`
 3.  Open `index.html` in your browser.Project Status: Completed
