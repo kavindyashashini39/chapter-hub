@@ -5,9 +5,9 @@
 ![Deployment Status](https://img.shields.io/badge/deployment-live-success)
 
 ## Group Information
-* **Student 1:** [N.A.A.SHASHINI KAWINDAYA WIJETHILAKA]   [ITBNM-2313-0039] - Role: DevOps EngineerUI , Design, Header component, CSS styling.
-* **Student 2:** [I.M.KALANI MEKALA]                      [ITBNM-2313-0049] - Role: Backend Developer , Backend logic, Database integration.
-* **Student 3:** [B.A.KAWYA PARAMI BOGODA]                [ITBIN-2313-0016] - Role: Frontend Developer , Content writing, Markdown files setup.
+* **Student 1:** [N.A.A.Shashini kavindaya]   [ITBNM-2313-0039] - Role: DevOps EngineerUI , Design, Header component, CSS styling.
+* **Student 2:** [I.M.Kalani mekhala]         [ITBNM-2313-0049] - Role: Backend Developer , Backend logic, Database integration.
+* **Student 3:** [B.A.Kawya parami bogoda]    [ITBIN-2313-0016] - Role: Frontend Developer , Content writing, Markdown files setup.
 
 ## Project Description
 ChapterHub is a modern online book platform designed to showcase a curated collection of technical and fiction books. It serves as a portfolio demonstrating advanced Git workflows and DevOps practices.
